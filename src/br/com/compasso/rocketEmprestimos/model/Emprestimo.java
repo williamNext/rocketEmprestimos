@@ -3,6 +3,8 @@ package br.com.compasso.rocketEmprestimos.model;
 import java.math.BigDecimal;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,8 +21,11 @@ public class Emprestimo {
 	@ManyToOne
 	private Conta conta;
 
+	@Enumerated(EnumType.STRING)
 	private Status status;
 	private BigDecimal valor;
+	
+	@Enumerated(EnumType.STRING)
 	private MetodoPagamento pagamento;
 	private BigDecimal jurosAoMes;
 	private BigDecimal parcelas;
