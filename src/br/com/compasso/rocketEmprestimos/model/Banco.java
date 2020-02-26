@@ -1,9 +1,12 @@
 package br.com.compasso.rocketEmprestimos.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Banco {
@@ -13,6 +16,9 @@ public class Banco {
 	private Integer id;
 
 	private String nome;
+	
+//	@ManyToOne(mappedBy = "agencia")
+//	private List <Agencia> agencias;
 
 	public Integer getId() {
 		return id;
