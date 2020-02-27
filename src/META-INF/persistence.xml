@@ -4,7 +4,7 @@
 http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 	version="2.0">
 
-	<persistence-unit name="contas-mysql">
+	<persistence-unit name="emprestimo-mysql">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<class>br.com.compasso.rocketEmprestimos.model.Agencia</class>
 		<class>br.com.compasso.rocketEmprestimos.model.Banco</class>		

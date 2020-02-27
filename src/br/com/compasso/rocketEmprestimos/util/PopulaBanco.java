@@ -19,8 +19,9 @@ public class PopulaBanco {
 	public static void main(String[] args) {
 		
 		EntityManager manager = new JPAUtil().getEntityManager();
-
 		manager.getTransaction().begin();
+		
+		// Bancos
 		
 		Banco banco1 = new Banco();
 		Banco banco2 = new Banco();
@@ -33,6 +34,8 @@ public class PopulaBanco {
 		banco3.setNome("Itaú");
 		banco4.setNome("Inter");
 		banco5.setNome("Santander");
+		
+		// Agências
 		
 		Agencia agencia1 = new Agencia();
 		Agencia agencia2 = new Agencia();
@@ -55,6 +58,8 @@ public class PopulaBanco {
 		agencia5.setBanco(banco5);
 		agencia5.setNumero(5862);
 		
+		// Clientes
+		
 		Cliente cliente1 = new Cliente();
 		Cliente cliente2 = new Cliente();
 		Cliente cliente3 = new Cliente();
@@ -71,6 +76,8 @@ public class PopulaBanco {
 		cliente4.setCpf("64124558848");
 		cliente5.setNome("Arthas");
 		cliente5.setCpf("26539287916");
+
+		// Contas
 		
 		Conta conta1 = new Conta();
 		Conta conta2 = new Conta();
@@ -89,6 +96,7 @@ public class PopulaBanco {
 		conta5.setAgencia(agencia5);
 		conta5.setCliente(cliente5);
 		
+		// Empréstimos
 		
 		Emprestimo emprestimo1 = new Emprestimo();
 		Emprestimo emprestimo2 = new Emprestimo();
@@ -126,8 +134,7 @@ public class PopulaBanco {
 		emprestimo5.setPagamento(MetodoPagamento.BOLETO);
 		emprestimo5.setJurosAoMes(new BigDecimal(2.0/100));
 		
-		
-		//Usuário
+		// Usuários
 		
 		Usuario usuarioGerente = new Usuario();
 		Usuario usuarioNormal = new Usuario();
@@ -139,11 +146,7 @@ public class PopulaBanco {
 		usuarioNormal.setSenha("user");
 		usuarioNormal.setTipoUsuario(TipoUsuario.CLIENTE);
 		
-		
-		
 		manager.getTransaction().commit();
 		manager.close();
-		
 	}
-
 }

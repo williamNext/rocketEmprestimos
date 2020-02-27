@@ -7,7 +7,7 @@ import javax.persistence.Persistence;
 public class JPAUtil {
 
 	private static EntityManagerFactory entityManagerFactory = Persistence
-			.createEntityManagerFactory("emprestimo");
+			.createEntityManagerFactory("emprestimo-mysql");
 
 	public EntityManager getEntityManager() {
 		return entityManagerFactory.createEntityManager();
