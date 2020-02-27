@@ -11,6 +11,8 @@ import br.com.compasso.rocketEmprestimos.model.Conta;
 import br.com.compasso.rocketEmprestimos.model.Emprestimo;
 import br.com.compasso.rocketEmprestimos.model.MetodoPagamento;
 import br.com.compasso.rocketEmprestimos.model.Status;
+import br.com.compasso.rocketEmprestimos.model.TipoUsuario;
+import br.com.compasso.rocketEmprestimos.model.Usuario;
 
 public class PopulaBanco {
 	
@@ -123,6 +125,19 @@ public class PopulaBanco {
 		emprestimo5.setValor(new BigDecimal(90000));
 		emprestimo5.setPagamento(MetodoPagamento.BOLETO);
 		emprestimo5.setJurosAoMes(new BigDecimal(2.0/100));
+		
+		
+		//Usuário
+		
+		Usuario usuarioGerente = new Usuario();
+		Usuario usuarioNormal = new Usuario();
+		
+		usuarioGerente.setLogin("gerente");
+		usuarioGerente.setSenha("mastergerente");
+		usuarioGerente.setTipoUsuario(TipoUsuario.GERENTE);
+		usuarioNormal.setLogin("user");
+		usuarioNormal.setSenha("user");
+		usuarioNormal.setTipoUsuario(TipoUsuario.CLIENTE);
 		
 		
 		
