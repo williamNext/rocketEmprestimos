@@ -2,12 +2,11 @@ package br.com.compasso.rocketEmprestimos.dao;
 
 import javax.persistence.EntityManager;
 
-public class ContaDAO {
+public class ClienteDAO {
 
 	private final EntityManager entityManager;
-
-	public ContaDAO(EntityManager entityManager) {
-		this.entityManager = entityManager;
+	
+	public ClienteDAO(EntityManager entityManager) {
+		this.entityManager = entityManager; 
 	}
-
 }
