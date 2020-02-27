@@ -1,5 +1,6 @@
 package br.com.compasso.rocketEmprestimos.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -14,7 +15,10 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	@Column(length = 50, nullable = false)
 	private String login;
+	
+	@Column(length = 50, nullable = false)
 	private String senha;
 	
 	@Enumerated(EnumType.STRING)
