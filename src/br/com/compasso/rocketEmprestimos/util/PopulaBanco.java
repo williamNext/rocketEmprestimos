@@ -48,10 +48,12 @@ public class PopulaBanco {
 		Agencia agencia3 = new Agencia();
 		Agencia agencia4 = new Agencia();
 		Agencia agencia5 = new Agencia();
+		Agencia agencia6 = new Agencia();
 
 		agencia1.setBanco(banco1);
 		agencia1.setNumero(2026);
 
+		
 		agencia2.setBanco(banco2);
 		agencia2.setNumero(1053);
 
@@ -63,13 +65,17 @@ public class PopulaBanco {
 
 		agencia5.setBanco(banco5);
 		agencia5.setNumero(5862);
+		
+		agencia6.setBanco(banco1);
+		agencia6.setNumero(2027);
 
 		manager.persist(agencia1);
 		manager.persist(agencia2);
 		manager.persist(agencia3);
 		manager.persist(agencia4);
 		manager.persist(agencia5);
-
+		manager.persist(agencia6);
+		
 		// Clientes
 
 		Cliente cliente1 = new Cliente();
