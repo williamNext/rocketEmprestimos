@@ -18,5 +18,5 @@ public class Usuario {
 	private String senha;
 	
 	@Enumerated(EnumType.STRING)
-	private tipoUsuario tipoUsuario;
+	private TipoUsuario tipoUsuario;
 }
