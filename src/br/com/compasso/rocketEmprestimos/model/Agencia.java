@@ -13,10 +13,14 @@ public class Agencia {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	private Integer numero;
+	private String numero;
 
 	@ManyToOne
 	private Banco banco;
+
+	public Agencia(String numeroAgencia, String nomeAgencia) {
+		// arrumar isso
+	}
 
 	public Integer getId() {
 		return id;
@@ -26,11 +30,11 @@ public class Agencia {
 		this.id = id;
 	}
 
-	public Integer getNumero() {
+	public String getNumero() {
 		return numero;
 	}
 
-	public void setNumero(Integer numero) {
+	public void setNumero(String numero) {
 		this.numero = numero;
 	}
 

@@ -28,7 +28,18 @@ public class Emprestimo {
 	@Enumerated(EnumType.STRING)
 	private MetodoPagamento pagamento;
 	private BigDecimal jurosAoMes;
-	private BigDecimal parcelas;
+	private int parcelas;
+
+	public Emprestimo(Conta conta2, Status status, BigDecimal valorEmprestimo, int numeroParcela,
+			BigDecimal jurosMes, MetodoPagamento pgmt) {
+
+		this.conta = conta2;
+		this.status = status;
+		this.valor = valorEmprestimo;
+		this.parcelas = numeroParcela;
+		this.jurosAoMes = jurosMes;
+		this.pagamento = pgmt;
+	}
 
 	public Integer getId() {
 		return id;
@@ -78,11 +89,11 @@ public class Emprestimo {
 		this.jurosAoMes = jurosAoMes;
 	}
 
-	public BigDecimal getParcelas() {
+	public int getParcelas() {
 		return parcelas;
 	}
 
-	public void setParcelas(BigDecimal parcelas) {
+	public void setParcelas(int parcelas) {
 		this.parcelas = parcelas;
 	}
 
