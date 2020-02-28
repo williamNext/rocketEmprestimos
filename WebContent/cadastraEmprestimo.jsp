@@ -16,29 +16,36 @@
 <body>
 
 	<c:import url="Header.jsp"></c:import>
+	
+	<div class="container">
+	
+	<label for="nome-aviao">CPF</label> <input type="text" id="cpf" name="cpf">
+	
+	<button onsubmit="return false" onclick="valida()">Validar</button>
+	
+	<c:if >
+	
 	<form action="CadastraEmprestimo" method="post">
-		<div class="container">
-
-			<label for="nome-aviao">CPF</label> <input type="text" id="cpf" name="cpf">
 			
-			<select onchange="preenchenome()">
-			<c:forEach items="${ clientes }" var="cidade">
-					<option value="${cliente.nome}"><c:out value="${cliente.cpf}"></c:out> </option>
-			</c:forEach>
-			</select>
-			<input type="text"  id="nome-cliente">
+			<script>
+				
+			</script>
 			
 			<label for="modelo-aviao">Nome</label> <input type="text" id="nome" name="nome">
 			
-			<label for="modelo-aviao">Valor</label> <input type="text" id="nome" name="nome">
+			<label for="modelo-aviao">Valor</label> <input type="text" id="valor" name="valor">
 			
-			<label for="modelo-aviao">Juros ao mês</label> <input type="text" id="nome" name="nome">
+			<label for="modelo-aviao">Juros ao mês</label> <input type="text" id="juros" name="juros">
 			
 			<label for="modelo-aviao">Numero de parcelas</label> <input type="text" id="parcelas" name="parcelas">
 
-		</div>
 		<input class="btn btn-primary" type="submit" value="cadastrar">
+		
 	</form>
+	
+	</c:if>
+	
+	</div>
 	
 </body>
 </html>
