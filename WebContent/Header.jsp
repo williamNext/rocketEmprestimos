@@ -19,12 +19,12 @@
 
 <body>
 
-	<div class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+	<div class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" style="margin-bottom: 80px">
 
-		<img src="https://i.imgur.com/xRtFhOS.png" alt="banner" height="40"
+		<img src="https://i.imgur.com/zTuqL9y.png" alt="banner" height="40"
 			width="160" />
 
-		<ul class="navbar-nav">
+		<ul class="navbar-nav" style="margin-left: 15px">
 
 			<li class="nav-item"><a class="nav-link"
 				href="/emprestimos?acao=ListaEmprestimos">LISTA DE EMPRÉSTIMOS</a></li>
@@ -37,8 +37,8 @@
 		</ul>
 
 	</div>
-
+	
 	<div class="container-fluid" style="margin-top: 80px"></div>
-
+	
 </body>
 </html>
