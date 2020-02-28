@@ -2,7 +2,7 @@ package br.com.compasso.rocketEmprestimos.dao;
 
 import javax.persistence.EntityManager;
 
-public class BaseDAO<T> {
+public class BaseDAO<T> implements CRUD<T>{
 	
 	private final EntityManager entityManager;
 	private final Class<T> classe;
@@ -24,6 +24,7 @@ public class BaseDAO<T> {
 		begin();
 		
 		try {
+			obj = entityManager.merge(obj);
 			entityManager.persist(obj);
 			commit();
 			return true;

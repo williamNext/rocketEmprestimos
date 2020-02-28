@@ -20,7 +20,12 @@ class BancoDAOTest {
 			System.out.println(b.getNumero());
 			System.out.println("========");
 		});
-		assertTrue(true);
+		
+		Banco banco2 = new Banco();
+		banco2.setId(7);
+		banco2.setNome("teste");
+		
+		assertTrue(bancoDAO.delete(banco2));
 	}
 
 }
