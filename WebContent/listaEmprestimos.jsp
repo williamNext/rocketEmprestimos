@@ -23,8 +23,8 @@
 	<div class="mainContainer">
 		<div class="tableContainer" style="overflow-x: scroll !important;">
 			<table class="table">
-					<tbody id="tabela-clientes">
 				<thead class="thead-dark">
+					<tbody id="tabela-clientes">
 					<tr>
 						<th scope="col">Nome:</th>
 						<th scope="col">Valor:</th>
@@ -38,7 +38,7 @@
 						<td>${cliente.valor}</td>
 						<td>${cliente.pagamento}</td>	
 						<td>${cliente.status}</td>
-					</tr>-
+					</tr>
 				</c:forEach>
 				</tbody>
 			</table>
