@@ -10,12 +10,7 @@
 .tableContainer{
 	
 	width: 80%;
-	margin: 5% 10% 2% 10%;
-}
-
-.tableTitle{
-	width: 15% !important;
-	margin:0 42.5% 0 42.5% !important;
+	margin: 15px 10% 2% 10%;
 }
 
 .lighter{

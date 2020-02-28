@@ -15,26 +15,28 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<style type="text/css">
+<%@ include file="/css/header.css" %>
+</style>
 </head>
 
 <body>
 
-	<div class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" style="margin-bottom: 80px">
+	<div class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top menuSuperior" style="margin-bottom: 80px">
 
 		<img src="https://i.imgur.com/zTuqL9y.png" alt="banner" height="40"
 			width="160" />
 
-		<ul class="navbar-nav" style="margin-left: 15px">
+			<ul class="navbar-nav">
 
-			<li class="nav-item"><a class="nav-link"
-				href="/emprestimos?acao=ListaEmprestimos">LISTA DE EMPRÉSTIMOS</a></li>
-			<li class="nav-item"><a class="nav-link"
-				href="/emprestimos?acao=CadastraEmprestimo">PEÇA UM EMPRÉSTIMO</a></li>
-			<li class="nav-item"><a class="nav-link"
-				href="/emprestimos?acao=AprovacaoEmprestimo">PÁGINA DE APROVAÇÃO</a>
-			</li>
+				<li class="nav-item"><a id="lista" class="nav-link"
+					href="/emprestimos?acao=ListaEmprestimos">LISTAR EMPRÉSTIMOS</a></li>
+				<li class="nav-item"><a id="cadastra" class="nav-link"
+					href="/emprestimos?acao=CadastraEmprestimo">CADASTRAR EMPRÉSTIMO</a></li>
+				<li class="nav-item"><a id="aprovacao" class="nav-link"
+					href="/emprestimos?acao=AprovacaoEmprestimo">PÁGINA DE APROVAÇÃO</a></li>
 
-		</ul>
+			</ul>
 
 	</div>
 	
