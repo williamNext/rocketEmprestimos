@@ -13,9 +13,14 @@ class ClienteDAOTest {
 	@Test
 	void test() {
 		ClienteDAO clienteDAO = new ClienteDAO(new JPAUtil().getEntityManager());
-		Cliente cliente = clienteDAO.find(1);
+		Cliente cliente = clienteDAO.findByNome("Kaiser");
 		
+		System.out.println(cliente);
 		System.out.println(cliente.getConta().getId());
+		System.out.println(cliente.getConta());
+		System.out.println(cliente.getNome());
+		System.out.println(cliente.getCpf());
+		System.out.println(cliente.getId());
 		
 		assertTrue(true);
 	}

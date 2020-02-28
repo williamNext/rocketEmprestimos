@@ -18,13 +18,13 @@ public class ClienteDAO extends BaseDAO<Cliente>{
 	
 	public List<Cliente> findAll(){
 		return entityManager
-				.createQuery("select c from cliente c", Cliente.class)
+				.createQuery("select c from Cliente c", Cliente.class)
 				.getResultList();
 	}
 	
 	public Cliente findByNome(String nome) {
 		TypedQuery<Cliente> query = entityManager
-				.createQuery("select c from cliente where c.nome = :pNome", Cliente.class);
+				.createQuery("select c from Cliente c where c.nome = :pNome", Cliente.class);
 		query.setParameter("pNome", nome);
 		
 		return query.getSingleResult();
