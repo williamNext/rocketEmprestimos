@@ -49,39 +49,6 @@ public class CadastraEmprestimo implements Acao {
 
 	}
 
-	private void salvaEmprestimo(BigDecimal valorEmprestimo, int numeroParcela, BigDecimal jurosMes,
-			MetodoPagamento pgmt, Conta conta) {
-		BaseDAO<Emprestimo> EmprestimoDao = new BaseDAO<Emprestimo>(entityManager, Emprestimo.class);
-		Emprestimo emprestimo = new Emprestimo(conta, Status.SOLICITACAO_ENVIADA, valorEmprestimo, numeroParcela,
-				jurosMes, pgmt);
-
-		EmprestimoDao.Insert(emprestimo);
-	}
-
-	private Conta salvaConta(String numeroConta, Agencia agencia, Cliente cliente) {
-		BaseDAO<Conta> contaDao = new BaseDAO<Conta>(entityManager, Conta.class);
-		Conta conta = new Conta(numeroConta, cliente, agencia);
-
-		contaDao.Insert(conta);
-		return conta;
-	}
-
-	private Agencia salvaAgencia(String numeroAgencia, String nomeAgencia) {
-		BaseDAO<Agencia> agenciaDao = new BaseDAO<Agencia>(entityManager, Agencia.class);
-
-		Agencia agencia = new Agencia(numeroAgencia, nomeAgencia);
-
-		agenciaDao.Insert(agencia);
-		return agencia;
-	}
-
-	private Cliente salvaCliente(String nomecliente, String cpfCliente) {
-		BaseDAO<Cliente> clienteDao = new BaseDAO<Cliente>(entityManager, Cliente.class);
-		Cliente cliente = new Cliente(nomecliente, cpfCliente);
-
-		clienteDao.Insert(cliente);
-		return cliente;
-	}
 
 	private MetodoPagamento checaFormaPagamento(String metodoPagamento, MetodoPagamento pgmt) {
 		switch (metodoPagamento) {

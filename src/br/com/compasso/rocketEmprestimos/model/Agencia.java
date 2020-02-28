@@ -1,5 +1,6 @@
 package br.com.compasso.rocketEmprestimos.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,14 +14,11 @@ public class Agencia {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	private String numero;
+	@Column(nullable = false)
+	private Integer numero;
 
 	@ManyToOne
 	private Banco banco;
-
-	public Agencia(String numeroAgencia, String nomeAgencia) {
-		// arrumar isso
-	}
 
 	public Integer getId() {
 		return id;
@@ -30,11 +28,11 @@ public class Agencia {
 		this.id = id;
 	}
 
-	public String getNumero() {
+	public Integer getNumero() {
 		return numero;
 	}
 
-	public void setNumero(String numero) {
+	public void setNumero(Integer numero) {
 		this.numero = numero;
 	}
 

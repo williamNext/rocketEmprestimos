@@ -2,6 +2,7 @@ package br.com.compasso.rocketEmprestimos.model;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -23,23 +24,15 @@ public class Emprestimo {
 
 	@Enumerated(EnumType.STRING)
 	private Status status;
+	
+	@Column(nullable = false)
 	private BigDecimal valor;
 	
 	@Enumerated(EnumType.STRING)
 	private MetodoPagamento pagamento;
+	
 	private BigDecimal jurosAoMes;
-	private int parcelas;
-
-	public Emprestimo(Conta conta2, Status status, BigDecimal valorEmprestimo, int numeroParcela,
-			BigDecimal jurosMes, MetodoPagamento pgmt) {
-
-		this.conta = conta2;
-		this.status = status;
-		this.valor = valorEmprestimo;
-		this.parcelas = numeroParcela;
-		this.jurosAoMes = jurosMes;
-		this.pagamento = pgmt;
-	}
+	private Integer parcelas;
 
 	public Integer getId() {
 		return id;
@@ -89,11 +82,11 @@ public class Emprestimo {
 		this.jurosAoMes = jurosAoMes;
 	}
 
-	public int getParcelas() {
+	public Integer getParcelas() {
 		return parcelas;
 	}
 
-	public void setParcelas(int parcelas) {
+	public void setParcelas(Integer parcelas) {
 		this.parcelas = parcelas;
 	}
 
