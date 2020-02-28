@@ -24,6 +24,7 @@
 		<div class="tableContainer" style="overflow-x: scroll !important;">
 			<table class="table">
 				<thead class="thead-dark">
+					<tbody id="tabela-clientes">
 					<tr>
 						<th scope="col">Nome:</th>
 						<th scope="col">Valor:</th>
@@ -32,15 +33,17 @@
 						</tr>
 				</thead>
 				<c:forEach items="${clientes}" var="cliente">
-					<tr>
+					<tr class="clientes">
 						<td>${cliente.nome}</td>
 						<td>${cliente.valor}</td>
 						<td>${cliente.pagamento}</td>	
 						<td>${cliente.status}</td>
 					</tr>
 				</c:forEach>
+				</tbody>
 			</table>
 		</div>
 	</div>
+	<script src="javascript/removerCliente.js" ></script>
 </body>
 </html>
