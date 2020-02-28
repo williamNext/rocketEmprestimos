@@ -11,10 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.compasso.rocketEmprestimos.acao.Acao;
 
-/**
- * Servlet implementation class MainController
- */
-@WebServlet("/")
+
+@WebServlet("/emprestimos")
 public class MainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

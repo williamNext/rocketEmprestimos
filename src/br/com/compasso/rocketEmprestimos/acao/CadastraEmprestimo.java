@@ -42,7 +42,7 @@ public class CadastraEmprestimo implements Acao {
 		
 		em.close();
 		
-		return "redirect:cadastraEmprestimo.jsp";
+		return "redirect:emprestimos?acao=FormCadastraEmprestimo";
 
 	}
 
