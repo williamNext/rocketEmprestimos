@@ -20,7 +20,7 @@ public class Cliente {
 	@Column(length = 11, nullable = false)
 	private String cpf;
 
-	@OneToOne(mappedBy = "conta")
+	@OneToOne(mappedBy = "cliente")
 	private Conta conta;
 
 	public Integer getId() {

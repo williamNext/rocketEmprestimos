@@ -20,23 +20,11 @@ public class BaseDAO<T> {
 		return entityManager.find(classe, PK);
 	}
 	
-	public boolean insert(T obj) {
-		entityManager.getTransaction().begin();
+	public boolean saveOrUpdate(T obj) {
+		begin();
 		
 		try {
 			entityManager.persist(obj);
-			commit();
-			return true;
-		}catch (Exception e) {
-			rollback();
-		}
-		
-		return false;
-	}
-	
-	public boolean update(T obj) {
-		try {
-			
 			commit();
 			return true;
 		}catch (Exception e) {

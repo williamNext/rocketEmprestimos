@@ -19,7 +19,7 @@ public class Banco {
 	@Column(length = 50, nullable = false)
 	private String nome;
 
-	@OneToMany(mappedBy = "agencia")
+	@OneToMany(mappedBy = "banco")
 	private List<Agencia> agencias;
 
 	public Integer getId() {

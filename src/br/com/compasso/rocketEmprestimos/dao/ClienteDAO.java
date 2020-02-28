@@ -3,6 +3,7 @@ package br.com.compasso.rocketEmprestimos.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 import br.com.compasso.rocketEmprestimos.model.Cliente;
 
@@ -19,5 +20,13 @@ public class ClienteDAO extends BaseDAO<Cliente>{
 		return entityManager
 				.createQuery("select c from cliente c", Cliente.class)
 				.getResultList();
+	}
+	
+	public Cliente findByNome(String nome) {
+		TypedQuery<Cliente> query = entityManager
+				.createQuery("select c from cliente where c.nome = :pNome", Cliente.class);
+		query.setParameter("pNome", nome);
+		
+		return query.getSingleResult();
 	}
 }
