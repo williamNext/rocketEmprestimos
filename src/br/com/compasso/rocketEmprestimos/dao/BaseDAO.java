@@ -2,7 +2,7 @@ package br.com.compasso.rocketEmprestimos.dao;
 
 import javax.persistence.EntityManager;
 
-public class BaseDAO<T> {
+public class BaseDAO<T> implements CRUD<T>{
 	
 	private final EntityManager entityManager;
 	private final Class<T> classe;
@@ -16,14 +16,49 @@ public class BaseDAO<T> {
 		return entityManager;
 	}
 	
-	public T Find(Object PK) {
+	public T find(Object PK) {
 		return entityManager.find(classe, PK);
 	}
 	
-	public void Insert(T obj) {
+	public boolean saveOrUpdate(T obj) {
+		begin();
+		
+		try {
+			obj = entityManager.merge(obj);
+			entityManager.persist(obj);
+			commit();
+			return true;
+		}catch (Exception e) {
+			rollback();
+		}
+		
+		return false;
+	}
+	
+	public boolean delete(T obj) {
+		begin();
+		
+		try {
+			obj = entityManager.merge(obj);
+			entityManager.remove(obj);
+			commit();
+			return true;
+		}catch (Exception e) {
+			rollback();
+		}
+		
+		return false;
+	}
+	
+	private void begin() {
 		entityManager.getTransaction().begin();
-		entityManager.persist(obj);
+	}
+	
+	private void commit() {
 		entityManager.getTransaction().commit();
 	}
 	
+	private void rollback() {
+		entityManager.getTransaction().rollback();
+	}
 }

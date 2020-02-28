@@ -2,51 +2,60 @@ package br.com.compasso.rocketEmprestimos.acao;
 
 import java.math.BigDecimal;
 
+import javax.persistence.EntityManager;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.compasso.rocketEmprestimos.dao.BaseDAO;
-import br.com.compasso.rocketEmprestimos.model.Agencia;
+import br.com.compasso.rocketEmprestimos.dao.ClienteDAO;
+import br.com.compasso.rocketEmprestimos.dao.EmprestimoDAO;
 import br.com.compasso.rocketEmprestimos.model.Cliente;
-import br.com.compasso.rocketEmprestimos.model.Conta;
 import br.com.compasso.rocketEmprestimos.model.Emprestimo;
 import br.com.compasso.rocketEmprestimos.model.MetodoPagamento;
 import br.com.compasso.rocketEmprestimos.model.Status;
+import br.com.compasso.rocketEmprestimos.util.JPAUtil;
 
 public class CadastraEmprestimo implements Acao {
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) {
-		// dados cliente
+
 		String nomecliente = request.getParameter("nomeCliente");
-		String cpfCliente = request.getParameter("cpfCliente");
-		// dados empréstimo
+		
 		BigDecimal valorEmprestimo = new BigDecimal(request.getParameter("valorEmprestimo"));
 		int numeroParcela = Integer.valueOf(request.getParameter("numeroParcelas"));
 		BigDecimal jurosMes = new BigDecimal(request.getParameter("jurosMes"));
-		// dados conta
-		String numeroConta = request.getParameter("numeroConta");
-		// dados agencia
-		String numeroAgencia = request.getParameter("numeroAgencia");
-		String nomeAgencia = request.getParameter("nomeAgencia");
-
+	
 		String metodoPagamento = request.getParameter("metodoPagamento");
 
 		MetodoPagamento pgmt = null;
 
 		pgmt = checaFormaPagamento(metodoPagamento, pgmt);
 
-		Agencia agencia = salvaAgencia(numeroAgencia, nomeAgencia);
-
-		Cliente cliente = salvaCliente(nomecliente, cpfCliente);
-
-		Conta conta = salvaConta(numeroConta, agencia, cliente);
-
-		salvaEmprestimo(valorEmprestimo, numeroParcela, jurosMes, pgmt, conta);
+		EntityManager em = new JPAUtil().getEntityManager();
+	
+		Cliente cliente  = new ClienteDAO(em).findByNome(nomecliente);
 		
+		Emprestimo emprestimo = preparaEmprestimo(numeroParcela, jurosMes, pgmt, cliente);
+		
+		EmprestimoDAO emprestimoDAO = new EmprestimoDAO(em);
+		emprestimoDAO.saveOrUpdate(emprestimo);
+		
+		em.close();
+		
+		return "redirect:cadastraEmprestimo.jsp";
 
-		return "forward:cadastraEmprestimo.jsp";
+	}
 
+
+	private Emprestimo preparaEmprestimo(int numeroParcela, BigDecimal jurosMes, MetodoPagamento pgmt,
+			Cliente cliente) {
+		Emprestimo emprestimo = new Emprestimo();
+		emprestimo.setConta(cliente.getConta());
+		emprestimo.setJurosAoMes(jurosMes);
+		emprestimo.setPagamento(pgmt);
+		emprestimo.setParcelas(numeroParcela);
+		emprestimo.setStatus(Status.SOLICITACAO_ENVIADA);
+		return emprestimo;
 	}
 
 
