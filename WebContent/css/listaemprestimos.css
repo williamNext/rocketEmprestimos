@@ -1,0 +1,23 @@
+@charset "ISO-8859-1";
+
+.mainContainer{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+
+.tableContainer{
+	
+	width: 80%;
+	margin: 5% 10% 2% 10%;
+}
+
+.tableTitle{
+	width: 15% !important;
+	margin:0 42.5% 0 42.5% !important;
+}
+
+.lighter{
+	opacity: 40%;
+}
