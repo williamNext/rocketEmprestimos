@@ -19,12 +19,12 @@ public class EmprestimoDAO extends BaseDAO<Emprestimo>{
 	
 	public List<Emprestimo> findAll(){
 		return entityManager
-				.createQuery("select e from emprestimo e", Emprestimo.class)
+				.createQuery("select e from Emprestimo e", Emprestimo.class)
 				.getResultList();
 	}
 	
 	public List<Emprestimo> findDiferentesDeAprovados(){
-		String jpql = "select e from emprestimo e where e.status <> :pStatus";
+		String jpql = "select e from Emprestimo e where e.status <> :pStatus";
 		
 		TypedQuery<Emprestimo> query = entityManager.createQuery(jpql, Emprestimo.class);
 		query.setParameter("pStatus", Status.APROVADO);

@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 
 import javax.persistence.EntityManager;
 
+import br.com.compasso.rocketEmprestimos.dao.CRUD;
 import br.com.compasso.rocketEmprestimos.model.Agencia;
 import br.com.compasso.rocketEmprestimos.model.Banco;
 import br.com.compasso.rocketEmprestimos.model.Cliente;
@@ -175,11 +176,11 @@ public class PopulaBanco {
 		Usuario usuarioGerente = new Usuario();
 		Usuario usuarioNormal = new Usuario();
 
-		usuarioGerente.setLogin("gerente");
-		usuarioGerente.setSenha("mastergerente");
+		usuarioGerente.setLogin("admin");
+		usuarioGerente.setSenha(Criptografador.gerarHashMD5("admin"));
 		usuarioGerente.setTipoUsuario(TipoUsuario.GERENTE);
 		usuarioNormal.setLogin("user");
-		usuarioNormal.setSenha("user");
+		usuarioNormal.setSenha(Criptografador.gerarHashMD5("user"));
 		usuarioNormal.setTipoUsuario(TipoUsuario.CLIENTE);
 
 		manager.persist(usuarioGerente);
