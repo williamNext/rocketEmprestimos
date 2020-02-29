@@ -1,28 +1,38 @@
 package br.com.compasso.rocketEmprestimos.dao;
 
 import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Path;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 
 import br.com.compasso.rocketEmprestimos.model.Usuario;
 import br.com.compasso.rocketEmprestimos.util.Criptografador;
 
-public class UsuarioDAO extends BaseDAO<Usuario>{
+public class UsuarioDAO extends BaseDAO<Usuario> {
 
 	private final EntityManager entityManager;
-	
+
 	public UsuarioDAO(EntityManager entityManager) {
 		super(entityManager, Usuario.class);
 		this.entityManager = entityManager;
 	}
-	
+
 	public Usuario findByLoginAndSenha(String login, String senha) {
-		String jpql = "select u from Usuario u where u.login = :pLogin and u.senha = :pSenha";
-		TypedQuery<Usuario> query = entityManager
-				.createQuery(jpql, Usuario.class);
-		query.setParameter("pLogin", login);
-		query.setParameter("pSenha", Criptografador.gerarHashMD5(senha));
-		
-		return query.getSingleResult();
+		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Usuario> query = criteriaBuilder.createQuery(Usuario.class);
+		Root<Usuario> root = query.from(Usuario.class);
+
+		Path<String> loginPath = root.get("login");
+		Path<String> senhaPath = root.get("senha");
+
+		Predicate loginEqual = criteriaBuilder.equal(loginPath, login);
+		Predicate senhaEqual = criteriaBuilder.equal(senhaPath, Criptografador.gerarHashMD5(senha));
+
+		return entityManager
+				.createQuery(query.where(loginEqual, senhaEqual))
+				.getSingleResult();
 	}
-	
+
 }

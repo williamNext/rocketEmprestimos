@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import br.com.compasso.rocketEmprestimos.dao.EmprestimoDAO;
 import br.com.compasso.rocketEmprestimos.model.Emprestimo;
+import br.com.compasso.rocketEmprestimos.model.Status;
 import br.com.compasso.rocketEmprestimos.util.JPAUtil;
 
 class EmprestimoDAOTest {
@@ -23,13 +24,13 @@ class EmprestimoDAOTest {
 		
 		System.out.println("Diferentes de aprovados");
 		
-		List<Emprestimo> deAprovados = emprestimoDAO.findDiferentesDeAprovados();
+		List<Emprestimo> deAprovados = emprestimoDAO.findDiferentesDe(Status.REPROVADO);
 		
 		deAprovados.forEach(e -> {
 			System.out.println(e.getId());
 		});
 		
-		assertTrue(true);
+		assertTrue(deAprovados.size() > 0);
 	}
 
 }
