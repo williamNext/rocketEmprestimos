@@ -1,0 +1,23 @@
+.container{
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	font-size: 16px;
+	
+	width:40% !important;
+	margin-left: 30% !important;
+	margin-right: 30% !important;
+	
+}
+
+label{
+	margin-top:15px;
+}
+
+.btn{
+	margin-top:40px !important;
+	width:20% !important;
+	margin-left: 40% !important;
+	margin-right: 40% !important;
+}
