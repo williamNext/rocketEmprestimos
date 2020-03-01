@@ -4,19 +4,16 @@
 
 <!DOCTYPE html>
 <html>
-<head>
 
+<head>
 <meta charset="ISO-8859-1">
 <title>Aprovação de Empréstimo</title>
-
 <style type="text/css">
 <%@ include file="/css/listaEmprestimos.css" %>
 </style>
-
 </head>
 
-<body>
-	
+<body>	
 	<c:import url="Header.jsp"></c:import>
 
 	<script>

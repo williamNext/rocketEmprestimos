@@ -4,15 +4,13 @@
 
 <!DOCTYPE html>
 <html>
-<head>
 
+<head>
 <meta charset="ISO-8859-1">
 <title>Solicitação de empréstimo</title>
-
 <style type="text/css">
 <%@ include file="/css/cadastraEmprestimo.css" %>
 </style>
-
 </head>
 
 <body>
@@ -24,9 +22,7 @@
 	</script>
 
 	<form action="CadastraEmprestimo" method="post">
-	
 		<div class="container">
-			
 			<label for="nome-cliente">Nome:</label>
 			<select class="selector" id="nome" name="nome">
 				<option value="-">-</option>
@@ -41,12 +37,10 @@
 			<label for="juros-emprestimo">Juros ao mês:</label> <input type="text" id="juros" name="juros">			
 			
 			<label for="parcelas-emprestimo">Quantidade de parcelas:</label> <input type="text" id="parcelas" name="parcelas">
-
 		</div>			
 
 		<input class="btn btn-dark btn-sm" type="submit" value="CADASTRAR">
-
 	</form>
-
 </body>
+
 </html>
