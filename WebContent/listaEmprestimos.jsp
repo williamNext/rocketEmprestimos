@@ -32,12 +32,12 @@
 							<th scope="col">Status:</th>
 							</tr>
 					</thead>
-					<c:forEach items="${clientes}" var="cliente">
-						<tr class="clientes">
-							<td>${cliente.nome}</td>
-							<td>${cliente.valor}</td>
-							<td>${cliente.pagamento}</td>	
-							<td>${cliente.status}</td>
+					<c:forEach items="${emprestimos}" var="emprestimo">
+						<tr class="emprestimo">
+							<td>${emprestimo.cliente.nome}</td>
+							<td>${emprestimo.valor}</td>
+							<td>${emprestimo.pagamento}</td>	
+							<td>${emprestimo.status}</td>
 						</tr>
 					</c:forEach>
 				</tbody>
