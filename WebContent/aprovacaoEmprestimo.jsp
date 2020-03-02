@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:url value="/emprestimos" var="linkEntradaServlet"/>
 
 <!DOCTYPE html>
 <html>
@@ -9,7 +10,7 @@
 <meta charset="ISO-8859-1">
 <title>Aprovação de Empréstimo</title>
 <style type="text/css">
-<%@ include file="/css/listaEmprestimos.css" %>
+<%@ include file="/css/lista.css" %>
 </style>
 </head>
 
@@ -35,7 +36,7 @@
 				</thead>
 				
 				<c:forEach items="${ emprestimos }" var="emprestimo">
-					<form action="MudaStatusEmprestimo" method="post">
+					<form action="${ linkEntradaServlet }" method="post">
 						<table>
 							<tr>
 								<td>${emprestimo.cliente.nome}</td>

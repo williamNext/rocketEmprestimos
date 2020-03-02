@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:url value="/emprestimos" var="linkEntradaServlet"/>
 
 <!DOCTYPE html>
 <html>
@@ -9,7 +10,7 @@
 <meta charset="ISO-8859-1">
 <title>Solicitação de empréstimo</title>
 <style type="text/css">
-<%@ include file="/css/cadastraEmprestimo.css" %>
+<%@ include file="/css/form.css" %>
 </style>
 </head>
 
@@ -21,7 +22,7 @@
 		$("#cadastra").addClass("mudaCorLink");
 	</script>
 
-	<form action="CadastraEmprestimo" method="post">
+	<form action="${ linkEntradaServlet }" method="post">
 		<div class="container">
 			<label for="nome-cliente">Nome:</label>
 			<select class="selector" id="nome" name="nome">
@@ -52,5 +53,4 @@
 		<input class="btn btn-dark btn-sm" type="submit" value="CADASTRAR">
 	</form>
 </body>
-
 </html>
