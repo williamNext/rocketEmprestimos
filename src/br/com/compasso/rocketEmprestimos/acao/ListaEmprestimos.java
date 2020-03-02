@@ -19,7 +19,7 @@ import br.com.compasso.rocketEmprestimos.util.JPAUtil;
  * Servlet implementation class listaEmprestimos
  */
 @WebServlet("/listaEmprestimos")
-public class listaEmprestimos implements Acao{
+public class ListaEmprestimos implements Acao{
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

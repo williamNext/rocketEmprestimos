@@ -15,7 +15,7 @@ import br.com.compasso.rocketEmprestimos.util.JPAUtil;
  * Servlet implementation class aprovaEmprestimo
  */
 
-public class aprovaEmprestimo implements Acao{//extends HttpServelt
+public class MudaStatusEmprestimo implements Acao{//extends HttpServelt
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,9 +24,30 @@ public class aprovaEmprestimo implements Acao{//extends HttpServelt
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO(em);
 		
 		Integer idEmprestimo = Integer.parseInt(request.getParameter("idEmprestimo"));
+		String statusDoEmprestimo = request.getParameter("novoStatus");
 		Emprestimo emprestimo = emprestimoDAO.find(idEmprestimo);
 		
-		emprestimo.setStatus(Status.APROVADO);
+		Status stats = null;
+		
+		switch (statusDoEmprestimo) {
+			case "EM_ANALISE":
+				stats = Status.EM_ANALISE;
+				break;
+				
+			case "SOLICITACAO_ENVIADA":
+				stats = Status.SOLICITACAO_ENVIADA;
+				break;
+			
+			case "APROVADO":
+				stats = Status.APROVADO;
+				break;
+				
+			case "REPROVADO":
+				stats = Status.REPROVADO;
+				break;
+		}
+		
+		emprestimo.setStatus(stats);
 		
 		emprestimoDAO.saveOrUpdate(emprestimo);
 		
@@ -38,3 +59,10 @@ public class aprovaEmprestimo implements Acao{//extends HttpServelt
 
 
 }
+
+/*
+	SOLICITACAO_ENVIADA, 
+	EM_ANALISE, 
+	APROVADO, 
+	REPROVADO
+*/
