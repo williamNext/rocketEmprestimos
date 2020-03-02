@@ -24,7 +24,8 @@ class EmprestimoDAOTest {
 		
 		System.out.println("Diferentes de aprovados");
 		
-		List<Emprestimo> deAprovados = emprestimoDAO.findDiferentesDe(Status.REPROVADO);
+		List<Emprestimo> deAprovados = emprestimoDAO.findDiferentesDe(Status.APROVADO ,
+																		Status.REPROVADO);
 		
 		deAprovados.forEach(e -> {
 			System.out.println(e.getId());
