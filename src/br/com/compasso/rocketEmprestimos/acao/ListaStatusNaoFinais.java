@@ -23,12 +23,4 @@ public class ListaStatusNaoFinais implements Acao {
 		
 		return "forward:ListaStatusNaoFinais.jsp";//nome provisorio
 	}
-	
-	
-	
-	
-	
-	
-	
-
 }

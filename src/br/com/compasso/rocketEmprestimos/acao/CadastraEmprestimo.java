@@ -12,7 +12,6 @@ import br.com.compasso.rocketEmprestimos.model.Cliente;
 import br.com.compasso.rocketEmprestimos.model.Emprestimo;
 import br.com.compasso.rocketEmprestimos.model.MetodoPagamento;
 import br.com.compasso.rocketEmprestimos.model.Status;
-import br.com.compasso.rocketEmprestimos.util.JPAUtil;
 
 public class CadastraEmprestimo implements Acao {
 
@@ -34,7 +33,6 @@ public class CadastraEmprestimo implements Acao {
 		emprestimoDAO.saveOrUpdate(emprestimo);
 
 		return "redirect:emprestimos?acao=FormCadastraEmprestimo";
-
 	}
 
 	private Emprestimo preparaEmprestimo(int numeroParcela, BigDecimal jurosMes, MetodoPagamento pgmt,
@@ -49,5 +47,4 @@ public class CadastraEmprestimo implements Acao {
 		
 		return emprestimo;
 	}
-
 }

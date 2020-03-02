@@ -25,5 +25,4 @@ public class FormAtualizaStatusCadastro implements Acao {
 		
 		return "forward:aprovaEmprestimo.jsp";
 	}
-
 }

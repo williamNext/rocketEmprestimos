@@ -25,8 +25,5 @@ public class FormCadastraEmprestimo implements Acao {
 		
 		return "forward:cadastraEmprestimo.jsp";
 	}
-
-	
-	
 }
 

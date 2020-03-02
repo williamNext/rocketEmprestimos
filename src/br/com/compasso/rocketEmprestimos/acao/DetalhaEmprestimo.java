@@ -27,5 +27,4 @@ public class DetalhaEmprestimo implements Acao{
 		
 		return "forward:detalhaEmprestimo.jsp";
 	}
-
 }
