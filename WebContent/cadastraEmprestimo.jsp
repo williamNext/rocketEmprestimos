@@ -33,7 +33,7 @@
 				</c:forEach>
 			</select> 		
 			
-			<label for="valor-emprestimo">Valor à ser solicitado:</label> <input type="text" id="valor" name="valor">			
+			<label for="valor-emprestimo">Valor à ser solicitado:</label> <input  type="number" min="0.01" step="0.01" max="2500" id="valor" name="valor">			
 			
 			<label for="juros-emprestimo">Juros ao mês:</label> <input type="text" id="juros" name="juros">			
 			
