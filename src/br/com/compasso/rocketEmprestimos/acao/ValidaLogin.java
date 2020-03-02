@@ -21,9 +21,9 @@ public class ValidaLogin implements Acao{
 		Usuario user = usuarioDAO.findByLoginAndSenha(login, senha);
 		
 		if (user != null) {
-			return "forward:FormCadastraEmprestimo.jsp";//revisar nao sei se esta certo
+			return "forward:FormCadastraEmprestimo.jsp";//revisar se é forward ou redirect
 		}else {
-			return "redirect:ValidaLogin";//revisar
+			return "forward:login.jsp";//revisar se é forward ou redirect
 		}
 		
 	}
