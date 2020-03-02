@@ -19,24 +19,19 @@ public class CadastraEmprestimo implements Acao {
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) {
 
+		EntityManager em = (EntityManager) request.getAttribute("entityManager");
 		String nomecliente = request.getParameter("nomeCliente");
-
 		BigDecimal valorEmprestimo = new BigDecimal(request.getParameter("valorEmprestimo"));
 		int numeroParcela = Integer.valueOf(request.getParameter("numeroParcelas"));
 		BigDecimal jurosMes = new BigDecimal(request.getParameter("jurosMes"));
-
 		String metodoPagamento = request.getParameter("metodoPagamento");
 		MetodoPagamento pgmt = MetodoPagamento.valueOf(metodoPagamento);
 
-		EntityManager em = new JPAUtil().getEntityManager();
 		Cliente cliente = new ClienteDAO(em).findByNome(nomecliente);
-
 		Emprestimo emprestimo = preparaEmprestimo(numeroParcela, jurosMes, pgmt, cliente, valorEmprestimo);
 
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO(em);
 		emprestimoDAO.saveOrUpdate(emprestimo);
-
-		em.close();
 
 		return "redirect:emprestimos?acao=FormCadastraEmprestimo";
 
