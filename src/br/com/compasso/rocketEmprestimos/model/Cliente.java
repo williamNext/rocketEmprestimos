@@ -20,16 +20,9 @@ public class Cliente {
 	@Column(length = 11, nullable = false)
 	private String cpf;
 
-<<<<<<< HEAD
-	@OneToOne(mappedBy = "conta")
-	private Conta conta;
-
-||||||| 52742ac
-=======
 	@OneToOne(mappedBy = "cliente")
 	private Conta conta;
 
->>>>>>> 2559e6fa9a5decf5fc2138934ce0df2c566f9874
 	public Integer getId() {
 		return id;
 	}

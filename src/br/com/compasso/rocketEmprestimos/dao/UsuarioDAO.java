@@ -8,6 +8,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 import br.com.compasso.rocketEmprestimos.model.Usuario;
+import br.com.compasso.rocketEmprestimos.util.Criptografador;
 
 public class UsuarioDAO extends BaseDAO<Usuario> {
 
