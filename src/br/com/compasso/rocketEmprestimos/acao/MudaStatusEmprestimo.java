@@ -11,9 +11,6 @@ import br.com.compasso.rocketEmprestimos.model.Emprestimo;
 import br.com.compasso.rocketEmprestimos.model.Status;
 import br.com.compasso.rocketEmprestimos.util.JPAUtil;
 
-/**
- * Servlet implementation class aprovaEmprestimo
- */
 
 public class MudaStatusEmprestimo implements Acao {// extends HttpServelt
 
