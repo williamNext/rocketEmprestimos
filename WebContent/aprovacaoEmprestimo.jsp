@@ -35,30 +35,38 @@
 				</thead>
 				
 				<c:forEach items="${ emprestimos }" var="emprestimo">
-					<c:if test="${ emprestimo.status != 'APROVADO' && emprestimo.status != 'REPROVADO' }">
-						<form action="AprovaEmprestimo" method="post">
-							<table>
-								<tr>
-									<td>${emprestimo.cliente.nome}</td>
-									<td>${emprestimo.valor}</td>
-									<td>${emprestimo.juros}</td>
-									<td>${emprestimo.parcelas}</td>
-									<td>
-										<select class="selector" id="status" name="status">
-											<option value="${ emprestimo.status }"><c:out value="${ emprestimo.status }"></c:out> </option>
-
-											<c:forEach items="${ status }" var="stats">
-												<c:if test="${ emprestimo.status != stats }">
-													<option value="${ stats }"><c:out value="${ stats }"></c:out></option>
-												</c:if>
-											</c:forEach>
-										</select>
-									</td>
-									<td><input class="btn btn-dark btn-sm" type="submit" value="ATUALIZAR"></td>
-								</tr>
-							</table>
-						</form>
-					</c:if>
+					<form action="MudaStatusEmprestimo" method="post">
+						<table>
+							<tr>
+								<td>${emprestimo.cliente.nome}</td>
+								<td>${emprestimo.valor}</td>
+								<td>${emprestimo.juros}</td>
+								<td>${emprestimo.parcelas}</td>
+								<td>
+									<select class="selector" id="status" name="status">
+										<option value="${ emprestimo.status }"><c:out value="${ emprestimo.status }"></c:out> </option>
+										
+										<c:if test="${ emprestimo.status != 'SOLICITACAO_ENVIADA' }">
+											<option value="SOLICITACAO_ENVIADA">SOLICITACAO_ENVIADA</option>
+										</c:if>
+										
+										<c:if test="${ emprestimo.status != 'EM_ANALISE' }">
+											<option value="EM_ANALISE">EM_ANALISE</option>
+										</c:if>
+											
+										<c:if test="${ emprestimo.status != 'APROVADO' }">
+											<option value="APROVADO">APROVADO</option>
+										</c:if>
+										
+										<c:if test="${ emprestimo.status != 'REPROVADO' }">
+											<option value="REPROVADO">REPROVADO</option>
+										</c:if>
+									</select>
+								</td>
+								<td><input class="btn btn-dark btn-sm" type="submit" value="ATUALIZAR"></td>
+							</tr>
+						</table>
+					</form>
 				</c:forEach>
 			</table>
 		</div>

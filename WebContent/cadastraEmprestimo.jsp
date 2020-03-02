@@ -37,6 +37,16 @@
 			<label for="juros-emprestimo">Juros ao mês:</label> <input type="text" id="juros" name="juros">			
 			
 			<label for="parcelas-emprestimo">Quantidade de parcelas:</label> <input type="text" id="parcelas" name="parcelas">
+			
+			<label for="parcelas-emprestimo">Forma de pagamento:</label> 
+			<select class="selector" id="nome" name="nome">
+				<option value="-">-</option>
+				<option value="A_VISTA">À VISTA</option>
+				<option value="BOLETO">BOLETO</option>
+				<option value="DEBITO_CONTA">DÉBITO EM CONTA</option>
+				<option value="PARCELADO_CARNE">PARCELADO NO CARNÊ</option>
+				<option value="PARCELADO_CREDITO">PARCELADO NO CRÉDITO</option>
+			</select>
 		</div>			
 
 		<input class="btn btn-dark btn-sm" type="submit" value="CADASTRAR">
