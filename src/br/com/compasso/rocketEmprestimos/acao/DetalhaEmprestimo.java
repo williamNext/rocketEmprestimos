@@ -6,42 +6,28 @@ import javax.persistence.EntityManager;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import br.com.compasso.rocketEmprestimos.dao.EmprestimoDAO;
 import br.com.compasso.rocketEmprestimos.model.Emprestimo;
-import br.com.compasso.rocketEmprestimos.model.Status;
 import br.com.compasso.rocketEmprestimos.util.JPAUtil;
 
-/**
- * Servlet implementation class aprovaEmprestimo
- */
-
-public class MudaStatusEmprestimo implements Acao {// extends HttpServelt
+public class DetalhaEmprestimo implements Acao{
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
+		Integer idEmprestimo = Integer.parseInt((String) request.getAttribute("idEmprestimo"));
+		
 		EntityManager em = new JPAUtil().getEntityManager();
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO(em);
-
-		Integer idEmprestimo = Integer.parseInt(request.getParameter("idEmprestimo"));
-		String statusDoEmprestimo = request.getParameter("novoStatus");
+		
 		Emprestimo emprestimo = emprestimoDAO.find(idEmprestimo);
-
-		Status status = Status.valueOf(statusDoEmprestimo);
-
-		emprestimo.setStatus(status);
-
-		emprestimoDAO.saveOrUpdate(emprestimo);
-
+		
 		em.close();
-
-		return "forward:aprovaEmprestimo.jsp";
-
+		request.setAttribute("emprestimo", emprestimo);
+		
+		return "forward:detalhaEmprestimo.jsp";
 	}
 
 }
-
-/*
- * SOLICITACAO_ENVIADA, EM_ANALISE, APROVADO, REPROVADO
- */
