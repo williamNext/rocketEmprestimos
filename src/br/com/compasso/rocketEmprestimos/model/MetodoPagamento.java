@@ -2,7 +2,9 @@ package br.com.compasso.rocketEmprestimos.model;
 
 public enum MetodoPagamento {
 
+	A_VISTA,
 	BOLETO, 
-	DEBITO_EM_CONTA,
-	CARTAO
+	DEBITO_CONTA,
+	PARCELADO_CARNE,
+	PARCELADO_CREDITO
 }
