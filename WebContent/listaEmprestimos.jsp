@@ -10,7 +10,7 @@
 <meta charset="ISO-8859-1">
 <title>Lista de Empréstimos</title>
 <style type="text/css">
-<%@ include file="/css/listaEmprestimos.css" %>
+<%@ include file="/css/lista.css" %>
 </style>
 </head>
 <body>
@@ -22,18 +22,20 @@
 	
 	<div class="mainContainer">
 		<div class="tableContainer" style="overflow-x: scroll !important;">
+		<form method="get" action="detalhesEmprestimo.jsp" id="meu-form">
 			<table class="table">
-				<tbody id="tabela-clientes">
-					<thead class="thead-dark">
+				<thead class="thead-dark">
 						<tr>
 							<th scope="col">Nome:</th>
 							<th scope="col">Valor:</th>
 							<th scope="col">Pagamento:</th>
 							<th scope="col">Status:</th>
+							
 							</tr>
 					</thead>
+					<tbody id="tabela-emprestimos">
 					<c:forEach items="${emprestimos}" var="emprestimo">
-						<tr class="emprestimo">
+						<tr class="emprestimo" >
 							<td>${emprestimo.cliente.nome}</td>
 							<td>${emprestimo.valor}</td>
 							<td>${emprestimo.pagamento}</td>	
@@ -42,8 +44,9 @@
 					</c:forEach>
 				</tbody>
 			</table>
-		</div>
+				</form>
+			</div>
 	</div>
-	<script src="javascript/removerCliente.js" ></script>
+		<script src="js/removerEmprestimo.js" ></script>
 </body>
 </html>
