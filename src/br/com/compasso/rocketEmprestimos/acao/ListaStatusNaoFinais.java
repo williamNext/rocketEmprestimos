@@ -1,41 +1,45 @@
 package br.com.compasso.rocketEmprestimos.acao;
 
-import java.io.IOException;
-import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-//import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.compasso.rocketEmprestimos.dao.EmprestimoDAO;
 import br.com.compasso.rocketEmprestimos.model.Emprestimo;
+import br.com.compasso.rocketEmprestimos.model.Status;
 import br.com.compasso.rocketEmprestimos.util.JPAUtil;
 
 /**
- * Servlet implementation class listaEmprestimos
+ * Servlet implementation class ListaStatusNaoFinais
  */
-@WebServlet("/listaEmprestimos")
-public class listaEmprestimos implements Acao{
-
+@WebServlet("/ListaStatusNaoFinais")
+public class ListaStatusNaoFinais implements Acao {
+	
+	
 	@Override
-	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String executa(HttpServletRequest request, HttpServletResponse response) {
 		
 		EntityManager em = new JPAUtil().getEntityManager();
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO(em);
 		
-		List<Emprestimo> lstEmprestimos = emprestimoDAO.findAll();
-				
-		request.setAttribute("emprestimos", lstEmprestimos);//quase certeza que nao e request
+		List<Emprestimo> lstEmprestimos = emprestimoDAO.findDiferentesDe(Status.APROVADO, Status.REPROVADO);
+		
+		request.setAttribute("lstEmprestimosNaoFinais", lstEmprestimos);//revisar esta linha
 		
 		em.close();
 		
-		return "forward:listaEmprestimos.jsp";
+		return "forward:ListaStatusNaoFinais.jsp";//nome provisorio
 	}
-
+	
+	
+	
+	
+	
+	
 	
 
 }
