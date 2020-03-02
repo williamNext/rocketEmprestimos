@@ -11,25 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.compasso.rocketEmprestimos.dao.EmprestimoDAO;
 import br.com.compasso.rocketEmprestimos.model.Emprestimo;
-import br.com.compasso.rocketEmprestimos.util.JPAUtil;
 
-/**
- * Servlet implementation class listaEmprestimos
- */
-@WebServlet("/listaEmprestimos")
 public class ListaEmprestimos implements Acao{
 
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		EntityManager em = new JPAUtil().getEntityManager();
+		EntityManager em = (EntityManager) request.getAttribute("entityManager");
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO(em);
-		
-		List<Emprestimo> lstEmprestimos = emprestimoDAO.findAll();
-				
-		request.setAttribute("emprestimos", lstEmprestimos);//quase certeza que nao e request
-		
-		em.close();
+		List<Emprestimo> listEmprestimos = emprestimoDAO.findAll();
+		request.setAttribute("emprestimos", listEmprestimos);
 		
 		return "forward:listaEmprestimos.jsp";
 	}

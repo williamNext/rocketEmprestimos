@@ -18,20 +18,16 @@ public class MudaStatusEmprestimo implements Acao {// extends HttpServelt
 	public String executa(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		EntityManager em = new JPAUtil().getEntityManager();
+		EntityManager em = (EntityManager) request.getAttribute("entityManager");
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO(em);
 
 		Integer idEmprestimo = Integer.parseInt(request.getParameter("idEmprestimo"));
 		String statusDoEmprestimo = request.getParameter("novoStatus");
 		Emprestimo emprestimo = emprestimoDAO.find(idEmprestimo);
-
 		Status status = Status.valueOf(statusDoEmprestimo);
-
 		emprestimo.setStatus(status);
 
 		emprestimoDAO.saveOrUpdate(emprestimo);
-
-		em.close();
 
 		return "forward:aprovaEmprestimo.jsp";
 

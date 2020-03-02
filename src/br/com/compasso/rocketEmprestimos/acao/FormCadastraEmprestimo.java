@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.compasso.rocketEmprestimos.dao.ClienteDAO;
 import br.com.compasso.rocketEmprestimos.model.Cliente;
-import br.com.compasso.rocketEmprestimos.util.JPAUtil;
 
 public class FormCadastraEmprestimo implements Acao {
 
@@ -18,16 +17,11 @@ public class FormCadastraEmprestimo implements Acao {
 	public String executa(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		EntityManager em  = new JPAUtil().getEntityManager();
-		
+		EntityManager em = (EntityManager) request.getAttribute("entityManager");		
 		ClienteDAO clienteDAO = new ClienteDAO(em);
 		
 		List<Cliente> clientes = clienteDAO.findAll();
-		
-		em.close();
-		
 		request.setAttribute("clientes", clientes);
-		
 		
 		return "forward:cadastraEmprestimo.jsp";
 	}
