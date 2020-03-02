@@ -27,9 +27,7 @@ public class CadastraEmprestimo implements Acao {
 	
 		String metodoPagamento = request.getParameter("metodoPagamento");
 
-		MetodoPagamento pgmt = null;
-
-		pgmt = checaFormaPagamento(metodoPagamento, pgmt);
+		MetodoPagamento pgmt = checaFormaPagamento(metodoPagamento);
 
 		EntityManager em = new JPAUtil().getEntityManager();
 	
@@ -59,23 +57,12 @@ public class CadastraEmprestimo implements Acao {
 	}
 
 
-	private MetodoPagamento checaFormaPagamento(String metodoPagamento, MetodoPagamento pgmt) {
-		switch (metodoPagamento) {
-		case "CARTAO":
-			pgmt = MetodoPagamento.CARTAO;
-			break;
-		case "BOLETO":
-			pgmt = MetodoPagamento.BOLETO;
+	public MetodoPagamento checaFormaPagamento(String metodoPagamento) {
+		
+		MetodoPagamento valueOf = MetodoPagamento.valueOf(metodoPagamento);
 
-			break;
-		case "DEBITO_EM_CONTA":
-			pgmt = MetodoPagamento.DEBITO_EM_CONTA;
-
-			break;
-		default:
-			throw new IllegalArgumentException();
-		}
-		return pgmt;
+//		}
+		return valueOf;
 	}
 
 }

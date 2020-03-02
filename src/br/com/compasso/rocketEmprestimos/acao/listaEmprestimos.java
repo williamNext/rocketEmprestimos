@@ -27,9 +27,7 @@ public class listaEmprestimos implements Acao{
 		EntityManager em = new JPAUtil().getEntityManager();
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO(em);
 		
-		List<Emprestimo> lstEmprestimos = new ArrayList<>();
-		
-		lstEmprestimos = emprestimoDAO.findAll();
+		List<Emprestimo> lstEmprestimos = emprestimoDAO.findAll();
 				
 		request.setAttribute("emprestimos", lstEmprestimos);//quase certeza que nao e request
 		

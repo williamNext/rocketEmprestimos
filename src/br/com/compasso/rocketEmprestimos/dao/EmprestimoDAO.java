@@ -17,6 +17,7 @@ public class EmprestimoDAO extends BaseDAO<Emprestimo> {
 
 	public EmprestimoDAO(EntityManager entityManager) {
 		super(entityManager, Emprestimo.class);
+		
 	}
 	
 	public List<Emprestimo> findDiferentesDe(Status... status){
