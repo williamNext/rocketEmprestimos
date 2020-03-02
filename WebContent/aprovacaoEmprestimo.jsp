@@ -47,11 +47,11 @@
 										<option value="${ emprestimo.status }"><c:out value="${ emprestimo.status }"></c:out> </option>
 										
 										<c:if test="${ emprestimo.status != 'SOLICITACAO_ENVIADA' }">
-											<option value="SOLICITACAO_ENVIADA">SOLICITACAO_ENVIADA</option>
+											<option value="SOLICITACAO_ENVIADA">SOLICITAÇÃO ENVIADA</option>
 										</c:if>
 										
 										<c:if test="${ emprestimo.status != 'EM_ANALISE' }">
-											<option value="EM_ANALISE">EM_ANALISE</option>
+											<option value="EM_ANALISE">EM ANÁLISE</option>
 										</c:if>
 											
 										<c:if test="${ emprestimo.status != 'APROVADO' }">
