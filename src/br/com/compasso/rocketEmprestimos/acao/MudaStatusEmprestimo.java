@@ -34,10 +34,6 @@ public class MudaStatusEmprestimo implements Acao{//extends HttpServelt
 				stats = Status.EM_ANALISE;
 				break;
 				
-			case "SOLICITACAO_ENVIADA":
-				stats = Status.SOLICITACAO_ENVIADA;
-				break;
-			
 			case "APROVADO":
 				stats = Status.APROVADO;
 				break;
