@@ -26,7 +26,7 @@ public class CadastraEmprestimo implements Acao {
 		BigDecimal jurosMes = new BigDecimal(request.getParameter("jurosMes"));
 
 		String metodoPagamento = request.getParameter("metodoPagamento");
-		MetodoPagamento pgmt = checaFormaPagamento(metodoPagamento);
+		MetodoPagamento pgmt = MetodoPagamento.valueOf(metodoPagamento);
 
 		EntityManager em = new JPAUtil().getEntityManager();
 		Cliente cliente = new ClienteDAO(em).findByNome(nomecliente);
@@ -51,12 +51,8 @@ public class CadastraEmprestimo implements Acao {
 		emprestimo.setPagamento(pgmt);
 		emprestimo.setParcelas(numeroParcela);
 		emprestimo.setStatus(Status.SOLICITACAO_ENVIADA);
+		
 		return emprestimo;
-	}
-
-	private MetodoPagamento checaFormaPagamento(String metodoPagamento) {
-		MetodoPagamento pagamento = MetodoPagamento.valueOf(metodoPagamento);
-		return pagamento;
 	}
 
 }

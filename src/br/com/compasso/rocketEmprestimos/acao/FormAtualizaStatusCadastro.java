@@ -20,15 +20,10 @@ public class FormAtualizaStatusCadastro implements Acao {
 			throws ServletException, IOException {
 		
 		EntityManager em = new JPAUtil().getEntityManager();
-		
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO(em);
-		
-	    List<Emprestimo> emprestimos =  emprestimoDAO.findDiferentesDe(Status.APROVADO);
-	
+	    List<Emprestimo> emprestimos =  emprestimoDAO.findDiferentesDe(Status.APROVADO, Status.REPROVADO);
 	    request.setAttribute("emprestimos", emprestimos);
-		
 		em.close();
-		
 		
 		return "forward:aprovaEmprestimo.jsp";
 	}
