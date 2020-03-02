@@ -138,7 +138,7 @@ public class PopulaBanco {
 		emprestimo1.setConta(conta1);
 		emprestimo1.setStatus(Status.APROVADO);
 		emprestimo1.setValor(new BigDecimal(5000));
-		emprestimo1.setPagamento(MetodoPagamento.CARTAO);
+		emprestimo1.setPagamento(MetodoPagamento.PARCELADO_CREDITO);
 		emprestimo1.setJurosAoMes(new BigDecimal(1.2 / 100));
 
 		emprestimo2.setConta(conta1);
@@ -150,13 +150,13 @@ public class PopulaBanco {
 		emprestimo3.setConta(conta1);
 		emprestimo3.setStatus(Status.APROVADO);
 		emprestimo3.setValor(new BigDecimal(27500));
-		emprestimo3.setPagamento(MetodoPagamento.DEBITO_EM_CONTA);
+		emprestimo3.setPagamento(MetodoPagamento.DEBITO_CONTA);
 		emprestimo3.setJurosAoMes(new BigDecimal(1.0 / 100));
 
 		emprestimo4.setConta(conta1);
 		emprestimo4.setStatus(Status.SOLICITACAO_ENVIADA);
 		emprestimo4.setValor(new BigDecimal(650000));
-		emprestimo4.setPagamento(MetodoPagamento.DEBITO_EM_CONTA);
+		emprestimo4.setPagamento(MetodoPagamento.DEBITO_CONTA);
 		emprestimo4.setJurosAoMes(new BigDecimal(0.55 / 100));
 
 		emprestimo5.setConta(conta1);
