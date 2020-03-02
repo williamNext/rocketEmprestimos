@@ -15,26 +15,33 @@ import br.com.compasso.rocketEmprestimos.util.JPAUtil;
  * Servlet implementation class aprovaEmprestimo
  */
 
-public class aprovaEmprestimo implements Acao{//extends HttpServelt
+public class MudaStatusEmprestimo implements Acao {// extends HttpServelt
 
 	@Override
-	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	public String executa(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		EntityManager em = new JPAUtil().getEntityManager();
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO(em);
-		
+
 		Integer idEmprestimo = Integer.parseInt(request.getParameter("idEmprestimo"));
+		String statusDoEmprestimo = request.getParameter("novoStatus");
 		Emprestimo emprestimo = emprestimoDAO.find(idEmprestimo);
-		
-		emprestimo.setStatus(Status.APROVADO);
-		
+
+		Status status = Status.valueOf(statusDoEmprestimo);
+
+		emprestimo.setStatus(status);
+
 		emprestimoDAO.saveOrUpdate(emprestimo);
-		
+
 		em.close();
 
-		return "forward:aprovaEmprestimo.jsp"; 
-		
+		return "forward:aprovaEmprestimo.jsp";
+
 	}
 
-
 }
+
+/*
+ * SOLICITACAO_ENVIADA, EM_ANALISE, APROVADO, REPROVADO
+ */

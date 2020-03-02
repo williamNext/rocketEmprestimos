@@ -3,7 +3,6 @@ package br.com.compasso.rocketEmprestimos.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Path;
@@ -17,6 +16,7 @@ public class EmprestimoDAO extends BaseDAO<Emprestimo> {
 
 	public EmprestimoDAO(EntityManager entityManager) {
 		super(entityManager, Emprestimo.class);
+		
 	}
 	
 	public List<Emprestimo> findDiferentesDe(Status... status){

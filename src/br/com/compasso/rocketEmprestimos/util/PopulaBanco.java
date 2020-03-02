@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 
 import javax.persistence.EntityManager;
 
-import br.com.compasso.rocketEmprestimos.dao.CRUD;
 import br.com.compasso.rocketEmprestimos.model.Agencia;
 import br.com.compasso.rocketEmprestimos.model.Banco;
 import br.com.compasso.rocketEmprestimos.model.Cliente;

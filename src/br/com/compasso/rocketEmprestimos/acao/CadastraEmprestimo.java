@@ -20,36 +20,32 @@ public class CadastraEmprestimo implements Acao {
 	public String executa(HttpServletRequest request, HttpServletResponse response) {
 
 		String nomecliente = request.getParameter("nomeCliente");
-		
+
 		BigDecimal valorEmprestimo = new BigDecimal(request.getParameter("valorEmprestimo"));
 		int numeroParcela = Integer.valueOf(request.getParameter("numeroParcelas"));
 		BigDecimal jurosMes = new BigDecimal(request.getParameter("jurosMes"));
-	
+
 		String metodoPagamento = request.getParameter("metodoPagamento");
-
-		MetodoPagamento pgmt = null;
-
-		pgmt = checaFormaPagamento(metodoPagamento, pgmt);
+		MetodoPagamento pgmt = checaFormaPagamento(metodoPagamento);
 
 		EntityManager em = new JPAUtil().getEntityManager();
-	
-		Cliente cliente  = new ClienteDAO(em).findByNome(nomecliente);
-		
-		Emprestimo emprestimo = preparaEmprestimo(numeroParcela, jurosMes, pgmt, cliente);
-		
+		Cliente cliente = new ClienteDAO(em).findByNome(nomecliente);
+
+		Emprestimo emprestimo = preparaEmprestimo(numeroParcela, jurosMes, pgmt, cliente, valorEmprestimo);
+
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO(em);
 		emprestimoDAO.saveOrUpdate(emprestimo);
-		
+
 		em.close();
-		
+
 		return "redirect:emprestimos?acao=FormCadastraEmprestimo";
 
 	}
 
-
 	private Emprestimo preparaEmprestimo(int numeroParcela, BigDecimal jurosMes, MetodoPagamento pgmt,
-			Cliente cliente) {
+			Cliente cliente, BigDecimal valorEmprestimo) {
 		Emprestimo emprestimo = new Emprestimo();
+		emprestimo.setValor(valorEmprestimo);
 		emprestimo.setConta(cliente.getConta());
 		emprestimo.setJurosAoMes(jurosMes);
 		emprestimo.setPagamento(pgmt);
@@ -58,24 +54,9 @@ public class CadastraEmprestimo implements Acao {
 		return emprestimo;
 	}
 
-
-	private MetodoPagamento checaFormaPagamento(String metodoPagamento, MetodoPagamento pgmt) {
-		switch (metodoPagamento) {
-		case "CARTAO":
-			pgmt = MetodoPagamento.CARTAO;
-			break;
-		case "BOLETO":
-			pgmt = MetodoPagamento.BOLETO;
-
-			break;
-		case "DEBITO_EM_CONTA":
-			pgmt = MetodoPagamento.DEBITO_EM_CONTA;
-
-			break;
-		default:
-			throw new IllegalArgumentException();
-		}
-		return pgmt;
+	private MetodoPagamento checaFormaPagamento(String metodoPagamento) {
+		MetodoPagamento pagamento = MetodoPagamento.valueOf(metodoPagamento);
+		return pagamento;
 	}
 
 }
