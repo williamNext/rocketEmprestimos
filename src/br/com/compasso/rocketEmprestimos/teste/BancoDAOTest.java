@@ -2,6 +2,8 @@ package br.com.compasso.rocketEmprestimos.teste;
 
 import static org.junit.Assert.assertTrue;
 
+import javax.persistence.EntityManager;
+
 import org.junit.jupiter.api.Test;
 
 import br.com.compasso.rocketEmprestimos.dao.BancoDAO;
@@ -12,7 +14,8 @@ class BancoDAOTest {
 
 	@Test
 	void test() {
-		BancoDAO bancoDAO = new BancoDAO(new JPAUtil().getEntityManager());
+		EntityManager manager = new JPAUtil().getEntityManager();
+		BancoDAO bancoDAO = new BancoDAO(manager);
 		Banco banco = bancoDAO.find(1);
 		System.out.println("=========");
 		banco.getAgencias().forEach(b -> {
@@ -21,11 +24,16 @@ class BancoDAOTest {
 			System.out.println("========");
 		});
 		
+//		Banco banco2 = new Banco();
+//		banco2.setId(5);
+		
 		Banco banco2 = new Banco();
-		banco2.setId(7);
 		banco2.setNome("teste");
 		
-		assertTrue(bancoDAO.delete(banco2));
+		assertTrue(bancoDAO.saveOrUpdate(banco2));
+		//bancoDAO.delete(banco2);
+		
+		manager.close();
 	}
 
 }
