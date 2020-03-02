@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.com.compasso.rocketEmprestimos.dao.EmprestimoDAO;
 import br.com.compasso.rocketEmprestimos.model.Emprestimo;
+import br.com.compasso.rocketEmprestimos.model.Status;
 import br.com.compasso.rocketEmprestimos.util.JPAUtil;
 
 public class FormAtualizaStatusCadastro implements Acao {
@@ -22,7 +23,7 @@ public class FormAtualizaStatusCadastro implements Acao {
 		
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO(em);
 		
-	    List<Emprestimo> emprestimos =  emprestimoDAO.findDiferentesDeAprovados();
+	    List<Emprestimo> emprestimos =  emprestimoDAO.findDiferentesDe(Status.APROVADO);
 	
 	    request.setAttribute("emprestimos", emprestimos);
 		

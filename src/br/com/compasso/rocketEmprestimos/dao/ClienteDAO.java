@@ -1,32 +1,30 @@
 package br.com.compasso.rocketEmprestimos.dao;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Path;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 
 import br.com.compasso.rocketEmprestimos.model.Cliente;
 
 public class ClienteDAO extends BaseDAO<Cliente>{
 
-	private final EntityManager entityManager;
-	
 	public ClienteDAO(EntityManager entityManager) {
 		super(entityManager, Cliente.class);
-		this.entityManager = entityManager; 
 	}
 	
-	public List<Cliente> findAll(){
-		return entityManager
-				.createQuery("select c from cliente c", Cliente.class)
-				.getResultList();
-	}
-	
-	public Cliente findByNome(String nome) {
-		TypedQuery<Cliente> query = entityManager
-				.createQuery("select c from cliente where c.nome = :pNome", Cliente.class);
-		query.setParameter("pNome", nome);
+	public Cliente findByNome(String nome) {		
+		CriteriaBuilder criteriaBuilder = getEntityManager().getCriteriaBuilder();
+		CriteriaQuery<Cliente> query = criteriaBuilder.createQuery(Cliente.class);
+		Root<Cliente> root = query.from(Cliente.class);
 		
-		return query.getSingleResult();
+		Path<String> nomePath = root.get("nome");
+		Predicate equal = criteriaBuilder.equal(nomePath, nome);
+		
+		return getEntityManager()
+				.createQuery(query.where(equal))
+				.getSingleResult();
 	}
 }

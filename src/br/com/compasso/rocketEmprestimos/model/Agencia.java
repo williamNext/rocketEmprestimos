@@ -43,5 +43,4 @@ public class Agencia {
 	public void setBanco(Banco banco) {
 		this.banco = banco;
 	}
-
 }
