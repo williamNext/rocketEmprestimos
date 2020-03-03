@@ -85,15 +85,15 @@ public class PopulaBanco {
 		Cliente cliente4 = new Cliente();
 		Cliente cliente5 = new Cliente();
 
-		cliente1.setNome("Kaiser");
+		cliente1.setNome("João Roberto da Silva");
 		cliente1.setCpf("66426745268");
-		cliente2.setNome("Dovakin");
+		cliente2.setNome("Jennifer Rebeca Barros");
 		cliente2.setCpf("42628548264");
-		cliente3.setNome("Ruffus");
+		cliente3.setNome("Emanuel Nathan Viana");
 		cliente3.setCpf("64588426517");
-		cliente4.setNome("Arthur");
+		cliente4.setNome("Heloise Sônia Bernardes");
 		cliente4.setCpf("64124558848");
-		cliente5.setNome("Arthas");
+		cliente5.setNome("Cristiane Nina Carvalho");
 		cliente5.setCpf("26539287916");
 
 		manager.persist(cliente1);
@@ -140,30 +140,35 @@ public class PopulaBanco {
 		emprestimo1.setValor(new BigDecimal(5000));
 		emprestimo1.setPagamento(MetodoPagamento.PARCELADO_CREDITO);
 		emprestimo1.setJurosAoMes(new BigDecimal(1.2 / 100));
+		emprestimo1.setParcelas(24);
 
-		emprestimo2.setConta(conta1);
+		emprestimo2.setConta(conta2);
 		emprestimo2.setStatus(Status.EM_ANALISE);
 		emprestimo2.setValor(new BigDecimal(100000));
 		emprestimo2.setPagamento(MetodoPagamento.BOLETO);
 		emprestimo2.setJurosAoMes(new BigDecimal(0.5 / 100));
-
-		emprestimo3.setConta(conta1);
+		emprestimo2.setParcelas(12);
+		
+		emprestimo3.setConta(conta3);
 		emprestimo3.setStatus(Status.APROVADO);
 		emprestimo3.setValor(new BigDecimal(27500));
 		emprestimo3.setPagamento(MetodoPagamento.DEBITO_CONTA);
 		emprestimo3.setJurosAoMes(new BigDecimal(1.0 / 100));
-
-		emprestimo4.setConta(conta1);
+		emprestimo3.setParcelas(6);
+		
+		emprestimo4.setConta(conta4);
 		emprestimo4.setStatus(Status.SOLICITACAO_ENVIADA);
 		emprestimo4.setValor(new BigDecimal(650000));
 		emprestimo4.setPagamento(MetodoPagamento.DEBITO_CONTA);
 		emprestimo4.setJurosAoMes(new BigDecimal(0.55 / 100));
+		emprestimo4.setParcelas(18);
 
-		emprestimo5.setConta(conta1);
+		emprestimo5.setConta(conta5);
 		emprestimo5.setStatus(Status.REPROVADO);
 		emprestimo5.setValor(new BigDecimal(90000));
 		emprestimo5.setPagamento(MetodoPagamento.BOLETO);
 		emprestimo5.setJurosAoMes(new BigDecimal(2.0 / 100));
+		emprestimo5.setParcelas(36);
 
 		manager.persist(emprestimo1);
 		manager.persist(emprestimo2);
