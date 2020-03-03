@@ -8,9 +8,7 @@
 <html>
 <head>
 <title>Detalhes</title>
-<style type="text/css">
-<%@ include file="/css/detalhes.css" %>
-</style>
+<link  rel="stylesheet" type="text/css" href="css/lista.css"/>
 </head>
 <body>
 	<c:import url="Header.jsp"></c:import>
