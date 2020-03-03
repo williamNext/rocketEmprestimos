@@ -19,17 +19,17 @@
 <body>
 	<form action="${ linkEntradaServlet }" method="post">
 		<div class="container" style="margin-top: 80px">
-			<img class="logo" src="https://i.imgur.com/zTuqL9y.png" alt="banner" height="160"
-			width="640"/>
+			<img class="logo" src="https://i.imgur.com/zTuqL9y.png" alt="banner"/>
 			
 			<label for="usuario">Usuário:</label> <input type="text" id="usuario" name="usuario">			
-			<label for="usuario">Senha:</label> <input type="text" id="senha" name="senha">	
+			<label for="senha">Senha:</label> <input type="text" id="senha" name="senha">	
 			
 			<input type="hidden" name="acao" value="Login">
-
-			<input class="btn btn-dark btn-sm" type="submit" value="Login">
+			<input class="btn btn-dark btn-sm" id= "botao" type="submit" value="LOGIN" disabled>
 		</div>			
 
 	</form>
+	
+	<script src="js/login.js"></script>
 </body>
 </html>
