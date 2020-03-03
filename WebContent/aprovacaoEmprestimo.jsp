@@ -26,12 +26,11 @@
 			<table class="table">
 				<thead class="thead-dark">
 					<tr>
-						<th scope="col">Nome:</th>
-						<th scope="col">Valor:</th>
-						<th scope="col">Juros:</th>
-						<th scope="col">Parcelas:</th>
-						<th scope="col">Status:</th>
-						<th scope="col">Salvar:</th>
+						<th scope="col">Nome</th>
+						<th scope="col">Valor</th>
+						<th scope="col">Juros</th>
+						<th scope="col">Parcelas</th>
+						<th scope="col">Status</th>
 					</tr>
 				</thead>
 				
@@ -63,9 +62,9 @@
 											<option value="REPROVADO">REPROVADO</option>
 										</c:if>
 									</select>
+									<input type="hidden" name="acao" value="AprovacaoEmprestimo">
+									<input class="btn btn-dark btn-sm" type="submit" value="ATUALIZAR">
 								</td>
-								<td><input type="hidden" name="acao" value="AprovacaoEmprestimo">
-								<input class="btn btn-dark btn-sm" type="submit" value="ATUALIZAR"></td>
 							</tr>
 						</table>
 					</form>
