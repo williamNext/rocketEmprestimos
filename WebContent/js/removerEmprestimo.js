@@ -1,6 +1,6 @@
 	var emprestimos = document.querySelectorAll(".emprestimo");
 
-	var tabela = document.querySelector("body");
+	var tabela = document.querySelector("table");
 	console.log(tabela);
 	
 	tabela.addEventListener("dblclick", function(event) {
