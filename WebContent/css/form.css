@@ -1,0 +1,31 @@
+.container{
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	font-size: 16px;
+	
+	width:40% !important;
+	margin-left: 30% !important;
+	margin-right: 30% !important;
+	
+}
+
+.logo{
+	display: block;
+	margin-left: auto;
+  	margin-right: auto;
+  	width: 80%;
+  	height: 80%;
+}
+
+label{
+	margin-top:15px;
+}
+
+.btn{
+	margin-top:40px !important;
+	width:60% !important;
+	margin-left: 20% !important;
+	margin-right: 20% !important;
+}
