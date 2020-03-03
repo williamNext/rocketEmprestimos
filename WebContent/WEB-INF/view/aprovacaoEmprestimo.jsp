@@ -34,7 +34,7 @@
 					</thead>
 
 					<c:forEach items="${emprestimos}" var="emprestimo">
-						<tr id ="${emprestimo.id}">
+						<tr> <!-- id ="${emprestimo.id}"-->
 							<td>${emprestimo.conta.cliente.nome}</td>
 							<td>${emprestimo.valor}</td>
 							<td>${emprestimo.jurosAoMes}</td>
@@ -60,7 +60,8 @@
 										<option value="REPROVADO">REPROVADO</option>
 									</c:if>
 								</select> 
-								<input type="hidden" name="acao" value="MudaStatusEmprestimo" >
+								<input type="hidden" name="id" value="${emprestimo.id}">
+								<input type="hidden" name="acao" value="MudaStatusEmprestimo">
 								<input class="btn btn-dark btn-sm" type="submit" value="ATUALIZAR" id="atualiza-btn"></td>
 						</tr>
 					</c:forEach>
@@ -68,6 +69,6 @@
 			</form>
 		</div>
 	</div>
-	<script type="text/javascript" src="js/atualizaStatusEmprestimo.js"></script>
+	<!-- <script type="text/javascript" src="js/atualizaStatusEmprestimo.js"></script> -->
 </body>
 </html>

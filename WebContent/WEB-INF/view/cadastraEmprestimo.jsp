@@ -30,28 +30,27 @@
 							value="${cliente.nome}"></c:out>
 					</option>
 				</c:forEach>
-			</select> <label for="valor-emprestimo">Valor à ser solicitado:</label> <input
-				type="number" id="valor" name="valorEmprestimo" step="0.01"
-				value="0.01" min="0.01" disabled> <label
-				for="juros-emprestimo">Juros ao mês:</label> <input type="number"
+			</select> <label for="valor-emprestimo">Valor em reais à ser solicitado:</label> <input
+				type="number" id="valor" name="valorEmprestimo" step="1.00" min="10.00" placeholder="valor mínimo de 10 reais." disabled> <label
+				for="juros-emprestimo">Juros ao mês em porcentagem:</label> <input type="number"
 				id="juros" name="jurosMes" step="0.01" value="0.01" min="0.01"
 				disabled> <label for="parcelas-emprestimo">Quantidade
-				de parcelas:</label> <select class="selector" id="parcelas"
+				de parcelas:</label> <select class="selector" id="parcelas" 
 				name="numeroParcelas" disabled>
 				<option value="-">-</option>
 				<option value="1">1x</option>
-				<option value="2">2x</option>
-				<option value="3">3x</option>
-				<option value="6">6x</option>
-				<option value="9">9x</option>
-				<option value="12">12x</option>
-				<option value="18">18x</option>
-				<option value="24">24x</option>
-				<option value="30">30x</option>
-				<option value="60">60x</option>
-				<option value="120">120x</option>
-				<option value="240">240x</option>
-			</select> <label for="parcelas-emprestimo">Forma de pagamento:</label> <select
+				<option id="2x" value="2">2x</option>
+				<option id="3x" value="3">3x</option>
+				<option id="6x" value="6">6x</option>
+				<option id="9x" value="9">9x</option>
+				<option id="12x" value="12">12x</option>
+				<option id="18x" value="18">18x</option>
+				<option id="24x" value="24">24x</option>
+				<option id="30x" value="30">30x</option>
+				<option id="60x" value="60">60x</option>
+				<option id="120x" value="120">120x</option>
+				<option id="240x" value="240">240x</option>
+			</select> <label id=parcelas for="parcelas-emprestimo">Forma de pagamento:</label> <select
 				class="selector" id="pagamento" name="metodoPagamento" disabled>
 				<option value="-">-</option>
 				<option value="A_VISTA">À VISTA</option>
