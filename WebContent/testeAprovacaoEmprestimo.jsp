@@ -31,32 +31,28 @@
 						<th scope="col">Status</th>
 					</tr>
 				</thead>
-				
-				<c:forEach items="${ emprestimos }" var="emprestimo">
-					<form action="${ linkEntradaServlet }" method="post">
-						<table>
 							<tr>
-								<td>${emprestimo.cliente.nome}</td>
-								<td>${emprestimo.valor}</td>
-								<td>${emprestimo.juros}</td>
-								<td>${emprestimo.parcelas}</td>
+								<td>Renato dos Santos Machado Júnior</td>
+								<td>te</td>
+								<td>tes</td>
+								<td>te</td>
 								<td>
 									<select class="selector" id="status" name="status">
-										<option value="${ emprestimo.status }"><c:out value="${ emprestimo.status }"></c:out></option>
+										<option value="APROVADO"><c:out value="APROVADO"></c:out></option>
 										
-										<c:if test="${ emprestimo.status != 'SOLICITACAO_ENVIADA' }">
+										<c:if test="${ 'APROVADO' != 'SOLICITACAO_ENVIADA' }">
 											<option value="SOLICITACAO_ENVIADA">SOLICITAÇÃO ENVIADA</option>
 										</c:if>
 										
-										<c:if test="${ emprestimo.status != 'EM_ANALISE' }">
+										<c:if test="${ 'APROVADO' != 'EM_ANALISE' }">
 											<option value="EM_ANALISE">EM ANÁLISE</option>
 										</c:if>
 											
-										<c:if test="${ emprestimo.status != 'APROVADO' }">
+										<c:if test="${ 'APROVADO' != 'APROVADO' }">
 											<option value="APROVADO">APROVADO</option>
 										</c:if>
 										
-										<c:if test="${ emprestimo.status != 'REPROVADO' }">
+										<c:if test="${ 'APROVADO' != 'REPROVADO' }">
 											<option value="REPROVADO">REPROVADO</option>
 										</c:if>
 									</select>
@@ -64,9 +60,6 @@
 									<input class="btn btn-dark btn-sm" type="submit" value="ATUALIZAR">
 								</td>
 							</tr>
-						</table>
-					</form>
-				</c:forEach>
 			</table>
 		</div>
 	</div>
