@@ -9,9 +9,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Solicitação de empréstimo</title>
-<style type="text/css">
-<%@ include file="/css/form.css" %>
-</style>
+<link  rel="stylesheet" type="text/css" href="css/form.css"/>
 </head>
 
 <body>

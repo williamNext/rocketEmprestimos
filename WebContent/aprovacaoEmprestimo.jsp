@@ -9,9 +9,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Aprovação de Empréstimo</title>
-<style type="text/css">
-<%@ include file="/css/lista.css" %>
-</style>
+<link  rel="stylesheet" type="text/css" href="css/lista.css"/>
 </head>
 
 <body>	

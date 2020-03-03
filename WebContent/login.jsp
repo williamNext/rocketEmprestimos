@@ -11,9 +11,7 @@
 <title>Login</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-<style type="text/css">
-<%@ include file="/css/form.css" %>
-</style>
+<link  rel="stylesheet" type="text/css" href="css/form.css"/>
 </head>
 
 <body>
@@ -22,7 +20,7 @@
 			<img class="logo" src="https://i.imgur.com/zTuqL9y.png" alt="banner"/>
 			
 			<label for="usuario">Usuário:</label> <input type="text" id="usuario" name="usuario">			
-			<label for="senha">Senha:</label> <input type="text" id="senha" name="senha">	
+			<label for="senha">Senha:</label> <input type="password" id="senha" name="senha">	
 			
 			<input type="hidden" name="acao" value="Login">
 			<input class="btn btn-dark btn-sm" id= "botao" type="submit" value="LOGIN" disabled>
