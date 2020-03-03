@@ -20,14 +20,17 @@ public class MudaStatusEmprestimo implements Acao {// extends HttpServelt
 		EntityManager em = (EntityManager) request.getAttribute("entityManager");
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO(em);
 
-		Integer idEmprestimo = Integer.parseInt(request.getParameter("idEmprestimo"));
-		String statusDoEmprestimo = request.getParameter("novoStatus");
+		Integer idEmprestimo = Integer.parseInt(request.getParameter("id"));
+		
+		System.out.println(request.getParameter("id"));
+		
+		String statusDoEmprestimo = request.getParameter("status");
 		Emprestimo emprestimo = emprestimoDAO.find(idEmprestimo);
 		Status status = Status.valueOf(statusDoEmprestimo);
 		emprestimo.setStatus(status);
 
 		emprestimoDAO.saveOrUpdate(emprestimo);
 
-		return "forward:aprovaEmprestimo.jsp";
+		return "redirect:emprestimos?acao=FormAtualizaStatusCadastro";
 	}
 }

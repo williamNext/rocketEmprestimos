@@ -12,19 +12,18 @@ public class ValidaLogin implements Acao{
 	@Override
 	public String executa(HttpServletRequest request, HttpServletResponse response) {
 		
-		String login = request.getParameter("login");
+		String login = request.getParameter("usuario");
 		String senha = request.getParameter("senha");
-		
 		EntityManager em = (EntityManager) request.getAttribute("EntityManager");
-		UsuarioDAO usuarioDAO = new UsuarioDAO(em);
 		
+		UsuarioDAO usuarioDAO = new UsuarioDAO(em);
 		Usuario user = usuarioDAO.findByLoginAndSenha(login, senha);
 		
 		if (user != null) {
-			return "forward:FormCadastraEmprestimo.jsp";//revisar se é forward ou redirect
-		}else {
-			return "forward:login.jsp";//revisar se é forward ou redirect
+			return "redirect:emprestimos?acao=FormCadastraEmprestimo.jsp";//revisar se é forward ou redirect
 		}
+		
+		return "redirect:emprestimos?acao=login.jsp";//revisar se é forward ou redirect
 		
 	}
 

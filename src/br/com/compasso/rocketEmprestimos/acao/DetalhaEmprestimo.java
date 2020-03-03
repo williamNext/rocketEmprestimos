@@ -17,14 +17,14 @@ public class DetalhaEmprestimo implements Acao{
 			throws ServletException, IOException {
 		
 		EntityManager em = (EntityManager) request.getAttribute("entityManager");		
-		Integer idEmprestimo = Integer.parseInt((String) request.getAttribute("idEmprestimo"));
+		Integer idEmprestimo = Integer.parseInt(request.getParameter("id"));
+		
+	
 		
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO(em);
-		
 		Emprestimo emprestimo = emprestimoDAO.find(idEmprestimo);
-		
 		request.setAttribute("emprestimo", emprestimo);
 		
-		return "forward:detalhaEmprestimo.jsp";
+		return "forward:detalhesEmprestimo.jsp";
 	}
 }

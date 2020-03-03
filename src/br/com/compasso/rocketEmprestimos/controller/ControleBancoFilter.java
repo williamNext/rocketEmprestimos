@@ -24,6 +24,10 @@ public class ControleBancoFilter implements Filter {
 
 		EntityManager entityManager = new JPAUtil().getEntityManager();
 		request.setAttribute("entityManager", entityManager);
+		
+		//TODO 
+		// Valida seção
+		
 		chain.doFilter(request, response);
 		entityManager.close();
 	}
