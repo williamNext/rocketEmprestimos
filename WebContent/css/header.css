@@ -4,4 +4,6 @@
 
 .mudaCorLink{
 	color: white !important;
+	border-bottom: groove;
+    border-width: 0.5px;
 }
