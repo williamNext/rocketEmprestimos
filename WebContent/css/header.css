@@ -1,9 +1,11 @@
-.menuSuperior{
+@charset "ISO-8859-1";
+
+.menuSuperior {
 	justify-content: space-between;
 }
 
-.mudaCorLink{
+.mudaCorLink {
 	color: white !important;
 	border-bottom: groove;
-    border-width: 0.5px;
+	border-width: 0.5px;
 }

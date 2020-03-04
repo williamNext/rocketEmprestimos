@@ -1,17 +1,15 @@
-	var emprestimos = document.querySelectorAll(".emprestimo");
+var emprestimos = document.querySelectorAll(".emprestimo");
 
-	var tabela = document.querySelector("table");
-	console.log(tabela);
-	
-	tabela.addEventListener("dblclick", function(event) {
-		
-     	$("#meu-form").append('<input type="hidden" name="id" value="'+ event.target.parentNode.id +'" />');
-     	console.log(('<input type="hidden" name="id " value="'+ event.target.parentNode.id +'" />'));
-     	
-     	$("#meu-form").submit();
-		//location.replace("localhost:8080/rocketEmprestimos/emprestimos?acao=DetalhaEmprestimo&id=" + event.target.parentNode.id);
-		
-//		console.log("Tamo junto");
-	});
-	
+var tabela = document.querySelector("table");
+console.log(tabela);
 
+tabela.addEventListener("dblclick", function(event) {
+
+	$("#meu-form").append(
+			'<input type="hidden" name="id" value="'
+					+ event.target.parentNode.id + '" />');
+	console.log(('<input type="hidden" name="id " value="'
+			+ event.target.parentNode.id + '" />'));
+
+	$("#meu-form").submit();
+});

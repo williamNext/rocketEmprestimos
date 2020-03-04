@@ -22,21 +22,24 @@
 
 	<form action="${linkEntradaServlet}" method="post">
 		<div class="container">
-			<label for="nome-cliente">Nome:</label> <select class="selector"
-				id="nome" name="nomeCliente">
+			<label for="nome-cliente">Nome do cliente:</label>
+			<select class="selector" id="nome" name="nomeCliente">
 				<option value="-">-</option>
 				<c:forEach items="${ clientes }" var="cliente">
 					<option value="${cliente.nome}"><c:out
 							value="${cliente.nome}"></c:out>
 					</option>
 				</c:forEach>
-			</select> <label for="valor-emprestimo">Valor em reais à ser solicitado:</label> <input
-				type="number" id="valor" name="valorEmprestimo" step="1.00" min="10.00" placeholder="valor mínimo de 10 reais." disabled> <label
-				for="juros-emprestimo">Juros ao mês em porcentagem:</label> <input type="number"
-				id="juros" name="jurosMes" step="0.01" value="0.01" min="0.01"
-				disabled> <label for="parcelas-emprestimo">Quantidade
-				de parcelas:</label> <select class="selector" id="parcelas" 
-				name="numeroParcelas" disabled>
+			</select>
+			
+			<label for="valor-emprestimo">Valor em reais à ser solicitado:</label>
+			<input type="number" id="valor" name="valorEmprestimo" step="1.00" min="10.00" placeholder="Selecione um cliente" disabled>
+			
+			<label for="juros-emprestimo">Juros ao mês em porcentagem:</label>
+			<input type="number" id="juros" name="jurosMes" step="0.01" min="0.01" placeholder="Selecione um cliente" disabled>
+			
+			<label for="parcelas-emprestimo">Quantidade de parcelas:</label>
+			<select class="selector" id="parcelas" name="numeroParcelas" disabled>
 				<option value="-">-</option>
 				<option value="1">1x</option>
 				<option id="2x" value="2">2x</option>
@@ -50,20 +53,23 @@
 				<option id="60x" value="60">60x</option>
 				<option id="120x" value="120">120x</option>
 				<option id="240x" value="240">240x</option>
-			</select> <label id=parcelas for="parcelas-emprestimo">Forma de pagamento:</label> <select
-				class="selector" id="pagamento" name="metodoPagamento" disabled>
+			</select>
+			
+			<label id=parcelas for="parcelas-emprestimo">Forma de pagamento:</label>
+			<select class="selector" id="pagamento" name="metodoPagamento" disabled>
 				<option value="-">-</option>
 				<option value="A_VISTA">À VISTA</option>
 				<option value="BOLETO">BOLETO</option>
 				<option value="DEBITO_CONTA">DÉBITO EM CONTA</option>
 				<option value="PARCELADO_CARNE">PARCELADO NO CARNÊ</option>
 				<option value="PARCELADO_CREDITO">PARCELADO NO CRÉDITO</option>
-			</select> <input type="hidden" name="acao" value="CadastraEmprestimo">
-			<input class="btn btn-dark btn-sm" id="botao" type="submit"
-				value="CADASTRAR" disabled>
+			</select>
+			
+			<input type="hidden" name="acao" value="CadastraEmprestimo">
+			<input class="btn btn-dark btn-sm" id="botao" type="submit" value="CADASTRAR" disabled>
 		</div>
 	</form>
 
-	<script src="js/cadastraEmprestimo.js"></script>
+	<script src="js/cadastraEmprestimo.js" charset="UTF-8"></script>
 </body>
 </html>

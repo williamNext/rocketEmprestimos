@@ -25,42 +25,56 @@
 				<table class="table">
 					<thead class="thead-dark">
 						<tr>
-							<th scope="col">Nome</th>
+							<th scope="col">Nome do cliente</th>
 							<th scope="col">Valor</th>
 							<th scope="col">Juros</th>
 							<th scope="col">Parcelas</th>
+							<th scope="col">Forma de pagamento</th>
 							<th scope="col">Status</th>
 						</tr>
 					</thead>
 
 					<c:forEach items="${emprestimos}" var="emprestimo">
-						<tr> <!-- id ="${emprestimo.id}"-->
+						<tr>
 							<td>${emprestimo.conta.cliente.nome}</td>
-							<td>${emprestimo.valor}</td>
-							<td>${emprestimo.jurosAoMes}</td>
-							<td>${emprestimo.parcelas}</td>
-							<td><select class="selector" id="status" name="status">
-									<option value="${emprestimo.status}"><c:out
-											value="${emprestimo.status}"></c:out></option>
-
-									<c:if test="${emprestimo.status != 'SOLICITACAO_ENVIADA'}">
-										<option value="SOLICITACAO_ENVIADA">SOLICITAÇÃO
-											ENVIADA</option>
-									</c:if>
-
-									<c:if test="${emprestimo.status != 'EM_ANALISE'}">
+							<td>R$ ${emprestimo.valor}</td>
+							<td>${emprestimo.jurosAoMes}%</td>
+							<td>${emprestimo.parcelas}x</td>
+							<td><c:if test="${emprestimo.pagamento == 'A_VISTA'}">
+								À VISTA
+							</c:if>
+							
+							<c:if test="${emprestimo.pagamento == 'BOLETO'}">
+								BOLETO
+							</c:if>
+							
+							<c:if test="${emprestimo.pagamento == 'DEBITO_CONTA'}">
+								DÉBITO EM CONTA
+							</c:if>
+							
+							<c:if test="${emprestimo.pagamento == 'PARCELADO_CARNE'}">
+								PARCELADO NO CARNÊ
+							</c:if>
+							
+							<c:if test="${emprestimo.pagamento == 'PARCELADO_CREDITO'}">
+								PARCELADO NO CRÉDITO
+							</c:if>
+						</td>
+							<td id="${emprestimo.id}"><select class="selector" id="status" name="status">
+									
+									<c:if test="${emprestimo.status == 'SOLICITACAO_ENVIADA'}">
+										<option value="${emprestimo.status}">SOLICITAÇÃO ENVIADA</option>
 										<option value="EM_ANALISE">EM ANÁLISE</option>
 									</c:if>
 
-									<c:if test="${emprestimo.status != 'APROVADO'}">
-										<option value="APROVADO">APROVADO</option>
+									<c:if test="${emprestimo.status == 'EM_ANALISE'}">
+										<option value="${emprestimo.status}">EM ANÁLISE</option>
+										<option value="SOLICITACAO_ENVIADA">SOLICITAÇÃO ENVIADA</option>
 									</c:if>
-
-									<c:if test="${emprestimo.status != 'REPROVADO'}">
-										<option value="REPROVADO">REPROVADO</option>
-									</c:if>
+									
+									<option value="APROVADO">APROVADO</option>
+									<option value="REPROVADO">REPROVADO</option>
 								</select> 
-								<input type="hidden" name="id" value="${emprestimo.id}">
 								<input type="hidden" name="acao" value="MudaStatusEmprestimo">
 								<input class="btn btn-dark btn-sm" type="submit" value="ATUALIZAR" id="atualiza-btn"></td>
 						</tr>
@@ -69,6 +83,6 @@
 			</form>
 		</div>
 	</div>
-	<!-- <script type="text/javascript" src="js/atualizaStatusEmprestimo.js"></script> -->
+	<script type="text/javascript" src="js/atualizaStatusEmprestimo.js"></script>
 </body>
 </html>
