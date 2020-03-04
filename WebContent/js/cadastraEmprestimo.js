@@ -33,12 +33,12 @@ inputPagamento.addEventListener('change', function enableInput(event) {
 });
 
 function removeDisbled() {
-	$('#valor').prop("disabled", false),
-	$('#juros').prop("disabled", false),
-	$('#parcelas').prop("disabled", false),
-	$('#pagamento').prop("disabled", false);
-	document.getElementById("valor").placeholder="Digite o valor a ser solicidado. Ex: 10.00"
-	document.getElementById("juros").placeholder="Digite o juros ao mes desejado. Ex: 50.00"
+	document.getElementById("valor").disabled = false;
+	document.getElementById("valor").placeholder = "Digite o valor a ser solicidado. Ex: 10.00";
+	document.getElementById("juros").disabled = false;
+	document.getElementById("juros").placeholder = "Digite o juros ao mes desejado. Ex: 50.00";
+	document.getElementById("parcelas").disabled = false;
+	document.getElementById("pagamento").disabled = false;
 }
 
 function disable() {
@@ -68,17 +68,17 @@ function checking() {
 
 function checkParcelas() {
 	if (($("#pagamento").val() != "A_VISTA") && ($("#pagamento").val() != "-")) {
-		$('#2x').prop("disabled", false);
-		$('#3x').prop("disabled", false);
-		$('#6x').prop("disabled", false);
-		$('#9x').prop("disabled", false);
-		$('#12x').prop("disabled", false);
-		$('#18x').prop("disabled", false);
-		$('#24x').prop("disabled", false);
-		$('#30x').prop("disabled", false);
-		$('#60x').prop("disabled", false);
-		$('#120x').prop("disabled", false);
-		$('#240x').prop("disabled", false);
+		document.getElementById("2x").disabled = false;
+		document.getElementById("3x").disabled = false;
+		document.getElementById("6x").disabled = false;
+		document.getElementById("9x").disabled = false;
+		document.getElementById("12x").disabled = false;
+		document.getElementById("18x").disabled = false;
+		document.getElementById("24x").disabled = false;
+		document.getElementById("30x").disabled = false;
+		document.getElementById("60x").disabled = false;
+		document.getElementById("120x").disabled = false;
+		document.getElementById("240x").disabled = false;
 	} else {
 		document.getElementById("2x").disabled = true;
 		document.getElementById("3x").disabled = true;

@@ -60,8 +60,7 @@
 									PARCELADO NO CRÉDITO
 								</c:if>
 							</td>
-							<td id="${emprestimo.id}">
-							<select class="selector" id="status" name="status">
+							<td id="${emprestimo.id}"><select class="selector" id="status" name="status">
 								<c:if test="${emprestimo.status == 'SOLICITACAO_ENVIADA'}">
 									<option value="${emprestimo.status}">SOLICITAÇÃO ENVIADA</option>
 									<option value="EM_ANALISE">EM ANÁLISE</option>
