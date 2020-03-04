@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.compasso.rocketEmprestimos.dao.EmprestimoDAO;
 import br.com.compasso.rocketEmprestimos.model.Emprestimo;
 import br.com.compasso.rocketEmprestimos.model.Status;
-import br.com.compasso.rocketEmprestimos.util.JPAUtil;
 
 
 public class MudaStatusEmprestimo implements Acao {// extends HttpServelt
