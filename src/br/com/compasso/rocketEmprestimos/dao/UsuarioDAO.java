@@ -29,6 +29,7 @@ public class UsuarioDAO extends BaseDAO<Usuario> {
 
 		Predicate loginEqual = criteriaBuilder.equal(loginPath, login);
 		Predicate senhaEqual = criteriaBuilder.equal(senhaPath, Criptografador.gerarHashMD5(senha));
+<<<<<<< HEAD
 		try {
 			return entityManager
 					.createQuery(query.where(loginEqual, senhaEqual))
@@ -36,6 +37,23 @@ public class UsuarioDAO extends BaseDAO<Usuario> {
 		} catch (Exception e) {
 			return null;
 		}
+||||||| f42ed24
+
+		return entityManager
+				.createQuery(query.where(loginEqual, senhaEqual))
+				.getSingleResult();
+=======
+
+		try {
+			return entityManager
+					.createQuery(query.where(loginEqual, senhaEqual))
+					.getSingleResult();
+		}catch (Exception e) {
+			System.out.println(e.getMessage());;
+		}
+		
+		return null;
+>>>>>>> 5eca52ba99091b0f4d692b79c4bddcaab0f05437
 	}
 
 }

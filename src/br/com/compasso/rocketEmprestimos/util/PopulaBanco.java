@@ -139,35 +139,35 @@ public class PopulaBanco {
 		emprestimo1.setValor(new BigDecimal(5000));
 		emprestimo1.setPagamento(MetodoPagamento.PARCELADO_CREDITO);
 		emprestimo1.setJurosAoMes(new BigDecimal(1.2));
-		emprestimo1.setParcelas(new Integer(9));
+		emprestimo1.setParcelas(9);
 
 		emprestimo2.setConta(conta2);
 		emprestimo2.setStatus(Status.EM_ANALISE);
 		emprestimo2.setValor(new BigDecimal(100000));
 		emprestimo2.setPagamento(MetodoPagamento.BOLETO);
 		emprestimo2.setJurosAoMes(new BigDecimal(0.5));
-		emprestimo2.setParcelas(new Integer(3));
+		emprestimo2.setParcelas(3);
 
 		emprestimo3.setConta(conta1);
 		emprestimo3.setStatus(Status.APROVADO);
 		emprestimo3.setValor(new BigDecimal(27500));
 		emprestimo3.setPagamento(MetodoPagamento.DEBITO_CONTA);
 		emprestimo3.setJurosAoMes(new BigDecimal(1.0));
-		emprestimo3.setParcelas(new Integer(240));
+		emprestimo3.setParcelas(240);
 
 		emprestimo4.setConta(conta1);
 		emprestimo4.setStatus(Status.SOLICITACAO_ENVIADA);
 		emprestimo4.setValor(new BigDecimal(650000));
 		emprestimo4.setPagamento(MetodoPagamento.DEBITO_CONTA);
 		emprestimo4.setJurosAoMes(new BigDecimal(0.55));
-		emprestimo4.setParcelas(new Integer(24));
+		emprestimo4.setParcelas(24);
 
 		emprestimo5.setConta(conta5);
 		emprestimo5.setStatus(Status.REPROVADO);
 		emprestimo5.setValor(new BigDecimal(90000));
 		emprestimo5.setPagamento(MetodoPagamento.A_VISTA);
 		emprestimo5.setJurosAoMes(new BigDecimal(2.0));
-		emprestimo5.setParcelas(new Integer(1));
+		emprestimo5.setParcelas(1);
 
 		manager.persist(emprestimo1);
 		manager.persist(emprestimo2);
