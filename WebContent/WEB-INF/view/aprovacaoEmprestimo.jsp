@@ -33,7 +33,6 @@
 							<th scope="col">Status</th>
 						</tr>
 					</thead>
-
 					
 					<c:forEach items="${emprestimos}" var="emprestimo">
 						<tr>
