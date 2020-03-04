@@ -34,6 +34,7 @@
 						</tr>
 					</thead>
 
+					
 					<c:forEach items="${emprestimos}" var="emprestimo">
 						<tr>
 							<td>${emprestimo.conta.cliente.nome}</td>

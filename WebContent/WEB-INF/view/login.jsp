@@ -20,10 +20,10 @@
 			<img class="logo" src="https://i.imgur.com/zTuqL9y.png" alt="banner" />
 
 			<label for="usuario">Usuário:</label> <input type="text" id="usuario"
-				name="usuario"> <label for="senha">Senha:</label> <input
-				type="password" id="senha" name="senha"> <input
-				type="hidden" name="acao" value="ValidaLogin"> <input
-				class="btn btn-dark btn-sm" id="botao" type="submit" value="LOGIN">
+				name="usuario"> <label for="senha">Senha:</label> 
+				<input type="password" id="senha" name="senha"> 
+				<input type="hidden" name="acao" value="ValidaLogin"> 
+				<input class="btn btn-dark btn-sm" id="botao" type="submit" value="LOGIN">
 		</div>
 
 	</form>
