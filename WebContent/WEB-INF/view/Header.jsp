@@ -22,7 +22,8 @@
 </head>
 
 <body>
-	<div class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top menuSuperior">
+	<div
+		class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top menuSuperior">
 		<img src="https://i.imgur.com/zTuqL9y.png" alt="banner" height="40"
 			width="160" />
 		<ul class="navbar-nav">
@@ -35,6 +36,8 @@
 			<li class="nav-item"><a id="aprovacao" class="nav-link"
 				href="${linkEntradaServlet}?acao=FormAtualizaStatusCadastro">PÁGINA
 					DE APROVAÇÃO</a></li>
+			<li class="nav-item"><a id="logout" class="nav-link"
+				href="${linkEntradaServlet}?acao=FazLogout">SAIR</a></li>
 		</ul>
 	</div>
 

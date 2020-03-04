@@ -84,15 +84,15 @@ public class PopulaBanco {
 		Cliente cliente4 = new Cliente();
 		Cliente cliente5 = new Cliente();
 
-		cliente1.setNome("Kaiser");
+		cliente1.setNome("João Roberto da Silva");
 		cliente1.setCpf("66426745268");
-		cliente2.setNome("Dovakin");
+		cliente2.setNome("Jennifer Rebeca Barros");
 		cliente2.setCpf("42628548264");
-		cliente3.setNome("Ruffus");
+		cliente3.setNome("Emanuel Nathan Viana");
 		cliente3.setCpf("64588426517");
-		cliente4.setNome("Arthur");
+		cliente4.setNome("Heloise Sônia Bernardes");
 		cliente4.setCpf("64124558848");
-		cliente5.setNome("Arthas");
+		cliente5.setNome("Cristiane Nina Carvalho");
 		cliente5.setCpf("26539287916");
 
 		manager.persist(cliente1);
@@ -141,7 +141,7 @@ public class PopulaBanco {
 		emprestimo1.setJurosAoMes(new BigDecimal(1.2));
 		emprestimo1.setParcelas(new Integer(9));
 
-		emprestimo2.setConta(conta1);
+		emprestimo2.setConta(conta2);
 		emprestimo2.setStatus(Status.EM_ANALISE);
 		emprestimo2.setValor(new BigDecimal(100000));
 		emprestimo2.setPagamento(MetodoPagamento.BOLETO);
@@ -162,7 +162,7 @@ public class PopulaBanco {
 		emprestimo4.setJurosAoMes(new BigDecimal(0.55));
 		emprestimo4.setParcelas(new Integer(24));
 
-		emprestimo5.setConta(conta1);
+		emprestimo5.setConta(conta5);
 		emprestimo5.setStatus(Status.REPROVADO);
 		emprestimo5.setValor(new BigDecimal(90000));
 		emprestimo5.setPagamento(MetodoPagamento.A_VISTA);
