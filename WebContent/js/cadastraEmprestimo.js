@@ -52,7 +52,7 @@ function disable() {
 }
 
 function checking() {
-	if (($("#nome").val() != "-") && ($("#valor").val() > 10.00)
+	if (($("#nome").val() != "-") && ($("#valor").val() > 0)
 			&& ($("#juros").val() > 0) && ($("#parcelas").val() != "-")
 			&& ($("#pagamento").val() != "-")) {
 		$('#botao').prop("disabled", false);
