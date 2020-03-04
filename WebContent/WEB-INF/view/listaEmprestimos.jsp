@@ -29,7 +29,6 @@
 							<th scope="col">Valor</th>
 							<th scope="col">Forma de pagamento</th>
 							<th scope="col">Status</th>
-
 						</tr>
 					</thead>
 					<c:forEach items="${emprestimos}" var="emprestimo">
@@ -37,25 +36,25 @@
 							<td>${emprestimo.conta.cliente.nome}</td>
 							<td>R$ ${emprestimo.valor}</td>
 							<td><c:if test="${emprestimo.pagamento == 'A_VISTA'}">
-								À VISTA
-							</c:if>
+									À VISTA
+								</c:if>
 							
-							<c:if test="${emprestimo.pagamento == 'BOLETO'}">
-								BOLETO
-							</c:if>
+								<c:if test="${emprestimo.pagamento == 'BOLETO'}">
+									BOLETO
+								</c:if>
 							
-							<c:if test="${emprestimo.pagamento == 'DEBITO_CONTA'}">
-								DÉBITO EM CONTA
-							</c:if>
+								<c:if test="${emprestimo.pagamento == 'DEBITO_CONTA'}">
+									DÉBITO EM CONTA
+								</c:if>
 							
-							<c:if test="${emprestimo.pagamento == 'PARCELADO_CARNE'}">
-								PARCELADO NO CARNÊ
-							</c:if>
+								<c:if test="${emprestimo.pagamento == 'PARCELADO_CARNE'}">
+									PARCELADO NO CARNÊ
+								</c:if>
 							
-							<c:if test="${emprestimo.pagamento == 'PARCELADO_CREDITO'}">
-								PARCELADO NO CRÉDITO
-							</c:if>
-						</td>
+								<c:if test="${emprestimo.pagamento == 'PARCELADO_CREDITO'}">
+									PARCELADO NO CRÉDITO
+								</c:if>
+							</td>
 							<td><c:if test="${emprestimo.status == 'SOLICITACAO_ENVIADA'}">
 									SOLICITAÇÃO ENVIADA
 								</c:if>
@@ -70,7 +69,6 @@
 							</td>
 						</tr>
 					</c:forEach>
-
 				</table>
 				<input type="hidden" name="acao" value="DetalhaEmprestimo">
 			</form>
