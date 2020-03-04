@@ -17,14 +17,17 @@ public class MudaStatusEmprestimo implements Acao {// extends HttpServelt
 	public String executa(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		System.out.println( request.getParameter("idStatus"));
+		System.out.println(request.getParameter("status"));
 		EntityManager em = (EntityManager) request.getAttribute("entityManager");
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO(em);
 
-		Integer idEmprestimo = Integer.parseInt(request.getParameter("id"));
+		Integer idEmprestimo = Integer.parseInt(request.getParameter("idStatus"));
 		
-		System.out.println(request.getParameter("id"));
 		
 		String statusDoEmprestimo = request.getParameter("status");
+		
+		
 		Emprestimo emprestimo = emprestimoDAO.find(idEmprestimo);
 		Status status = Status.valueOf(statusDoEmprestimo);
 		emprestimo.setStatus(status);

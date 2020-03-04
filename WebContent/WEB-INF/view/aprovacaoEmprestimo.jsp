@@ -33,13 +33,14 @@
 						</tr>
 					</thead>
 
+					
 					<c:forEach items="${emprestimos}" var="emprestimo">
-						<tr id ="${emprestimo.id}">
+						<tr>
 							<td>${emprestimo.conta.cliente.nome}</td>
 							<td>${emprestimo.valor}</td>
 							<td>${emprestimo.jurosAoMes}</td>
 							<td>${emprestimo.parcelas}</td>
-							<td><select class="selector" id="status" name="status">
+							<td id="${emprestimo.id}"><select class="selector" id="status" name="status">
 									<option value="${emprestimo.status}"><c:out
 											value="${emprestimo.status}"></c:out></option>
 
@@ -60,8 +61,8 @@
 										<option value="REPROVADO">REPROVADO</option>
 									</c:if>
 								</select> 
-								<input type="hidden" name="acao" value="MudaStatusEmprestimo" >
-								<input class="btn btn-dark btn-sm" type="submit" value="ATUALIZAR" id="atualiza-btn"></td>
+							  <input type="hidden" name="acao" value="MudaStatusEmprestimo" >
+								<input class="btn btn-dark btn-sm" type="submit" value="ATUALIZAR" class="atualiza-btn"></td>
 						</tr>
 					</c:forEach>
 				</table>
