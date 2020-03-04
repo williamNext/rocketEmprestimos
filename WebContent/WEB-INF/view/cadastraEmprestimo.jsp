@@ -33,7 +33,7 @@
 			</select>
 			
 			<label for="valor-emprestimo">Valor em reais à ser solicitado:</label>
-			<input type="number" id="valor" name="valorEmprestimo" step="1.00" min="10.00" placeholder="Selecione um cliente" disabled>
+			<input type="number" id="valor" name="valorEmprestimo" step="1.00" min="10" placeholder="Selecione um cliente" disabled>
 			
 			<label for="juros-emprestimo">Juros ao mês em porcentagem:</label>
 			<input type="number" id="juros" name="jurosMes" step="0.01" min="0.01" placeholder="Selecione um cliente" disabled>
@@ -70,6 +70,6 @@
 		</div>
 	</form>
 
-	<script src="js/cadastraEmprestimo.js" charset="UTF-8"></script>
+	<script src="js/cadastraEmprestimo.js"></script>
 </body>
 </html>
