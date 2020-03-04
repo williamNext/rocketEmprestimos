@@ -20,7 +20,7 @@ public class MainController extends HttpServlet {
 			throws ServletException, IOException {
 
 		String paramAcao = request.getParameter("acao");
-		String nomeDaClasse = "br.com.alura.rocketEmprestimos.acao." + paramAcao;
+		String nomeDaClasse = "br.com.compasso.rocketEmprestimos.acao." + paramAcao;
 		String nome;
 
 		try {

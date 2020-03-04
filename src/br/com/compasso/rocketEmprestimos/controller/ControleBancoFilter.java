@@ -9,21 +9,21 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
 
 import br.com.compasso.rocketEmprestimos.util.JPAUtil;
 
-@WebFilter("/emprestimos")
+//@WebFilter("/emprestimos")
 public class ControleBancoFilter implements Filter {
-
-    public ControleBancoFilter() { }
 
 	public void destroy() {	}
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
+		System.out.println("ControleBancoFilter");
+		
 		EntityManager entityManager = new JPAUtil().getEntityManager();
 		request.setAttribute("entityManager", entityManager);
+		
 		chain.doFilter(request, response);
 		entityManager.close();
 	}

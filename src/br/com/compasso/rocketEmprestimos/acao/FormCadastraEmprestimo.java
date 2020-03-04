@@ -19,14 +19,10 @@ public class FormCadastraEmprestimo implements Acao {
 		
 		EntityManager em = (EntityManager) request.getAttribute("entityManager");		
 		ClienteDAO clienteDAO = new ClienteDAO(em);
-		
 		List<Cliente> clientes = clienteDAO.findAll();
 		request.setAttribute("clientes", clientes);
 		
 		return "forward:cadastraEmprestimo.jsp";
 	}
-
-	
-	
 }
 

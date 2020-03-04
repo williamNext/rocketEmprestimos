@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -24,7 +23,4 @@ public class ListaEmprestimos implements Acao{
 		
 		return "forward:listaEmprestimos.jsp";
 	}
-
-	
-
 }

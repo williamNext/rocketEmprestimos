@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import br.com.compasso.rocketEmprestimos.dao.EmprestimoDAO;
 import br.com.compasso.rocketEmprestimos.model.Emprestimo;
 import br.com.compasso.rocketEmprestimos.model.Status;
@@ -18,23 +19,23 @@ public class MudaStatusEmprestimo implements Acao {// extends HttpServelt
 	public String executa(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		System.out.println( request.getParameter("idStatus"));
+		System.out.println(request.getParameter("status"));
 		EntityManager em = (EntityManager) request.getAttribute("entityManager");
 		EmprestimoDAO emprestimoDAO = new EmprestimoDAO(em);
 
-		Integer idEmprestimo = Integer.parseInt(request.getParameter("idEmprestimo"));
-		String statusDoEmprestimo = request.getParameter("novoStatus");
+		Integer idEmprestimo = Integer.parseInt(request.getParameter("idStatus"));
+		
+		
+		String statusDoEmprestimo = request.getParameter("status");
+		
+		
 		Emprestimo emprestimo = emprestimoDAO.find(idEmprestimo);
 		Status status = Status.valueOf(statusDoEmprestimo);
 		emprestimo.setStatus(status);
 
 		emprestimoDAO.saveOrUpdate(emprestimo);
 
-		return "forward:aprovaEmprestimo.jsp";
-
+		return "redirect:emprestimos?acao=FormAtualizaStatusCadastro";
 	}
-
 }
-
-/*
- * SOLICITACAO_ENVIADA, EM_ANALISE, APROVADO, REPROVADO
- */

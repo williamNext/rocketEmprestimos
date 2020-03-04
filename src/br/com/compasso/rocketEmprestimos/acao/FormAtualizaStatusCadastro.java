@@ -23,7 +23,6 @@ public class FormAtualizaStatusCadastro implements Acao {
 	    List<Emprestimo> emprestimos =  emprestimoDAO.findDiferentesDe(Status.APROVADO, Status.REPROVADO);
 	    request.setAttribute("emprestimos", emprestimos);
 		
-		return "forward:aprovaEmprestimo.jsp";
+		return "forward:aprovacaoEmprestimo.jsp";
 	}
-
 }
