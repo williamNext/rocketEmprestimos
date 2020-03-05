@@ -34,7 +34,7 @@ inputPagamento.addEventListener('change', function enableInput(event) {
 
 function removeDisbled() {
 	document.getElementById("valor").disabled = false;
-	document.getElementById("valor").placeholder = "Digite o valor a ser solicidado. Ex: 10.00";
+	document.getElementById("valor").placeholder = "Digite o valor a ser solicitado. Ex: 10.00";
 	document.getElementById("juros").disabled = false;
 	document.getElementById("juros").placeholder = "Digite o juros ao mes desejado. Ex: 50.00";
 	document.getElementById("parcelas").disabled = false;
@@ -54,12 +54,16 @@ function disable() {
 function checking() {
 	if (($("#nome").val() != "-") && ($("#valor").val() > 0)
 			&& ($("#juros").val() > 0) && ($("#parcelas").val() != "-")
-			&& ($("#pagamento").val() != "-")) {
+			&& ($("#pagamento").val() != "-") && ((($("#pagamento").val() == "A_VISTA")
+			&& ($("#parcelas").val() == 1)) || (($("#pagamento").val() != "A_VISTA") && ($("#parcelas").val() > 1)))) {
 		$('#botao').prop("disabled", false);
 	} else {
 		document.getElementById("botao").disabled = true;
 	}
-	
+	checkParcelaAvista();
+}
+
+function checkParcelaAvista() {
 	if (($("#pagamento").val() == "A_VISTA") && ($("#parcelas").val() > 1)) {
 		document.getElementById("botao").disabled = true;
 		alert("Quantidade invalida de parcelas para pagamento a vista!");

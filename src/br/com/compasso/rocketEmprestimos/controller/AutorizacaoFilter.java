@@ -30,7 +30,9 @@ public class AutorizacaoFilter implements Filter {
 		
 		boolean usuarioNaoLogado = session.getAttribute("usuarioLogado") == null;
 
+
 		boolean isUmaAcaoProtegida = !(paramAcao != null && (paramAcao.equals("ValidaLogin") || paramAcao.equals("FormLogin")));
+
 
 		if(usuarioNaoLogado && isUmaAcaoProtegida) {
 			response.sendRedirect("emprestimos?acao=FormLogin");

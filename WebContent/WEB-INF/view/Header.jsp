@@ -33,9 +33,12 @@
 			<li class="nav-item"><a id="lista" class="nav-link"
 				href="${linkEntradaServlet}?acao=ListaEmprestimos">LISTAR
 					EMPRÉSTIMOS</a></li>
-			<li class="nav-item"><a id="aprovacao" class="nav-link"
-				href="${linkEntradaServlet}?acao=FormAtualizaStatusCadastro">PÁGINA
-					DE APROVAÇÃO</a></li>
+			<c:if test="${usuarioLogado.tipoUsuario == 'GERENTE'}">
+				<li class="nav-item"><a id="aprovacao" class="nav-link"
+					href="${linkEntradaServlet}?acao=FormAtualizaStatusCadastro">PÁGINA
+						DE APROVAÇÃO</a></li>
+			</c:if>
+			
 			<li class="nav-item"><a id="logout" class="nav-link"
 				href="${linkEntradaServlet}?acao=FazLogout">SAIR</a></li>
 		</ul>
