@@ -1,0 +1,31 @@
+body {
+	background: #FFFFFF;
+}
+
+.container-fluid {
+	margin-top: -20px !important;
+}
+
+#banner {
+	width:100%;
+}
+
+.principal{
+	padding: 30px;
+}
+
+.titulo-centralizado {
+	text-align: center
+}
+
+p {
+	text-align: center;
+}
+
+#missao {
+	font-size: 20px
+}
+
+.itens {
+	font-style: italic
+}
