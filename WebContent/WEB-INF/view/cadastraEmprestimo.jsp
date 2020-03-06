@@ -33,7 +33,7 @@
 			</select>
 			
 			<label for="valor-emprestimo">Valor em reais à ser solicitado:</label>
-			<input type="number" id="valor" name="valorEmprestimo" step="1" min="10" placeholder="Selecione um cliente" disabled>
+			<input type="number" id="valor" name="valorEmprestimo" step="0.01" min="100" placeholder="Selecione um cliente" disabled>
 			
 			<label for="juros-emprestimo">Juros ao mês em porcentagem:</label>
 			<input type="number" id="juros" name="jurosMes" step="0.01" min="2.5" max="10" placeholder="Selecione um cliente" disabled>
@@ -51,7 +51,7 @@
 			<label for="parcelas-emprestimo">Quantidade de parcelas:</label>
 			<select class="selector" id="parcelas" name="numeroParcelas" disabled>
 				<option id="defaultParcelas" value="-">-</option>
-				<option id="1" value="1">1 x</option>
+				<option id="1" value="1"> </option>
 			</select>
 			
 			<input type="hidden" name="acao" value="CadastraEmprestimo">

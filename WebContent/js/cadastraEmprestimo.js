@@ -75,9 +75,16 @@ function parcelamentoDependente() {
 		counter--;
 	}
 	
-	let valorParcela = $("#valor").val()*(1+$("#juros").val()/100);
-	
-	if ($("#pagamento").val() != "A_VISTA") {	
+	if ($("#valor").val() < 10) {
+		parcelas.remove(1);
+		document.getElementById("defaultParcelas").text = "Valor insuficiente (minimo: R$ 100,00)";	
+	} else if (($("#juros").val() > 10) || ($("#juros").val() < 2.5)) {
+		parcelas.remove(1);
+		document.getElementById("defaultParcelas").text = "Juros insuficientes (entre: 2,5% a 10%)";
+	} else if ($("#pagamento").val() != "A_VISTA") {
+		
+		document.getElementById("defaultParcelas").text = "Em apenas 1x nesse valor";
+		createMetodoDeUmaVez();
 		
 		for (let i = 1; i < valueParcelas.length; i++) {
 			if (($("#valor").val() >= valueTest[i])) {
@@ -91,20 +98,23 @@ function parcelamentoDependente() {
 			}
 		}
 		
-		if (($("#valor").val() > 0) && ($("#valor").val() < 10)) {
-			document.getElementById("1").text = "";
-			document.getElementById("defaultParcelas").text = "Valor insuficiente";
-			
-		} else if ($("#valor").val() < valueTest[1]) {
-			document.getElementById("defaultParcelas").text = "Em apenas 1x nesse valor";
-			document.getElementById("1").text = "1x de R$ " + valorParcela.toFixed(2);
-		} else if ($("#valor").val() >= valueTest[1]) {
+		if ($("#valor").val() >= valueTest[1]) {
 			document.getElementById("defaultParcelas").text = "Em ate " + valueTest[counter-1]/100 + "x nesse valor";	
 			document.getElementById("1").text = "1x de R$ " + valorParcela.toFixed(2);
 		}
 
 	} else {
 		document.getElementById("defaultParcelas").text = "Em apenas 1x no metodo de pagamento selecionado";
-		document.getElementById("1").text = "1x de R$ " + valorParcela.toFixed(2);
+		parcelas.remove(1);
+		createMetodoDeUmaVez();
 	}
+}
+
+function createMetodoDeUmaVez() {
+	let valorParcela = $("#valor").val()*(1+$("#juros").val()/100);
+	let optionn = document.createElement("option");
+	optionn.text = "1x de R$ " + valorParcela.toFixed(2);
+	optionn.value = valueParcelas[1];
+	optionn.id = valueParcelas[1];
+	parcelas.add(optionn);
 }
