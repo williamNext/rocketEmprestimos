@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <c:url value="/emprestimos" var="linkEntradaServlet" />
 
 <!DOCTYPE html>
@@ -31,6 +29,7 @@
 							<th scope="col">Status</th>
 						</tr>
 					</thead>
+					
 					<c:forEach items="${emprestimos}" var="emprestimo">
 						<tr class="emprestimo" id="${emprestimo.id}">
 							<td>${emprestimo.conta.cliente.nome}</td>

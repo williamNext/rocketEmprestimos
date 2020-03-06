@@ -24,9 +24,11 @@
 <body>
 	<div
 		class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top menuSuperior">
-		<img src="https://i.imgur.com/zTuqL9y.png" alt="banner" height="40"
-			width="160" />
+		
 		<ul class="navbar-nav">
+			<li class="nav-item"><a id="homepage"
+				href="${linkEntradaServlet}?acao=HomePage"><img src="https://i.imgur.com/zTuqL9y.png" alt="banner" height="40"
+			width="160" /></a></li>
 			<li class="nav-item"><a id="cadastra" class="nav-link"
 				href="${linkEntradaServlet}?acao=FormCadastraEmprestimo">CADASTRAR
 					EMPRÉSTIMO</a></li>
