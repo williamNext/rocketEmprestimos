@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Detalhes</title>
+<title>Rocket Empréstimos - Detalhe do empréstimo de ${emprestimo.conta.cliente.nome}</title>
 <link rel="stylesheet" type="text/css" href="css/lista.css" />
 </head>
 <body>

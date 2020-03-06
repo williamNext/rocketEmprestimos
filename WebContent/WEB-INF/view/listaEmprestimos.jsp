@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Lista de Empréstimos</title>
+<title>Rocket Empréstimos - Lista de Empréstimos</title>
 <link rel="stylesheet" type="text/css" href="css/lista.css" />
 </head>
 <body>

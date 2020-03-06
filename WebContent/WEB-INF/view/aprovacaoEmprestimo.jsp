@@ -8,7 +8,7 @@
 
 <head>
 <meta charset="ISO-8859-1">
-<title>Aprovação de Empréstimo</title>
+<title>Rocket Empréstimos - Página de aprovação</title>
 <link rel="stylesheet" type="text/css" href="css/lista.css" />
 </head>
 

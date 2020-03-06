@@ -37,7 +37,7 @@
 				href="${linkEntradaServlet}?acao=FormCadastraEmprestimo">CADASTRAR
 					EMPRÉSTIMO</a></li>
 			<li class="nav-item"><a id="lista" class="nav-link"
-				href="${linkEntradaServlet}?acao=ListaEmprestimos">LISTAR
+				href="${linkEntradaServlet}?acao=ListaEmprestimos">LISTA DE
 					EMPRÉSTIMOS</a></li>
 			<c:if test="${usuarioLogado.tipoUsuario == 'GERENTE'}">
 				<li class="nav-item"><a id="aprovacao" class="nav-link"
