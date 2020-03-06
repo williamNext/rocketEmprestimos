@@ -28,7 +28,11 @@
 		<ul class="navbar-nav">
 			<li class="nav-item"><a id="homepage"
 				href="${linkEntradaServlet}?acao=HomePage"><img src="https://i.imgur.com/zTuqL9y.png" alt="banner" height="40"
-			width="160" /></a></li>
+			width="160" /></a></li></ul>
+		
+		<ul class="navbar-nav">
+			<li class="nav-item"><a id="inicio" class="nav-link"
+				href="${linkEntradaServlet}?acao=HomePage">PÁGINA INICIAL</a></li>
 			<li class="nav-item"><a id="cadastra" class="nav-link"
 				href="${linkEntradaServlet}?acao=FormCadastraEmprestimo">CADASTRAR
 					EMPRÉSTIMO</a></li>
