@@ -24,14 +24,20 @@
 <body>
 	<div
 		class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top menuSuperior">
-		<img src="https://i.imgur.com/zTuqL9y.png" alt="banner" height="40"
-			width="160" />
+		
 		<ul class="navbar-nav">
+			<li class="nav-item"><a id="homepage"
+				href="${linkEntradaServlet}?acao=HomePage"><img src="https://i.imgur.com/zTuqL9y.png" alt="banner" height="40"
+			width="160" /></a></li></ul>
+		
+		<ul class="navbar-nav">
+			<li class="nav-item"><a id="inicio" class="nav-link"
+				href="${linkEntradaServlet}?acao=HomePage">PÁGINA INICIAL</a></li>
 			<li class="nav-item"><a id="cadastra" class="nav-link"
 				href="${linkEntradaServlet}?acao=FormCadastraEmprestimo">CADASTRAR
 					EMPRÉSTIMO</a></li>
 			<li class="nav-item"><a id="lista" class="nav-link"
-				href="${linkEntradaServlet}?acao=ListaEmprestimos">LISTAR
+				href="${linkEntradaServlet}?acao=ListaEmprestimos">LISTA DE
 					EMPRÉSTIMOS</a></li>
 			<c:if test="${usuarioLogado.tipoUsuario == 'GERENTE'}">
 				<li class="nav-item"><a id="aprovacao" class="nav-link"

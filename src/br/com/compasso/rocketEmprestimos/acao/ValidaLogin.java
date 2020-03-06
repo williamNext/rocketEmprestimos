@@ -21,7 +21,7 @@ public class ValidaLogin implements Acao{
 		
 		if (user != null) {
 			request.getSession().setAttribute("usuarioLogado", user);
-			return "redirect:emprestimos?acao=FormCadastraEmprestimo";
+			return "redirect:emprestimos?acao=HomePage";
 		}
 		
 		return "redirect:emprestimos?acao=FormLogin";
