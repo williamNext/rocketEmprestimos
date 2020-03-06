@@ -1,6 +1,10 @@
 package br.com.compasso.rocketEmprestimos.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Path;
@@ -26,5 +30,13 @@ public class ClienteDAO extends BaseDAO<Cliente>{
 		return getEntityManager()
 				.createQuery(query.where(equal))
 				.getSingleResult();
+	}
+	
+	public List<Cliente> findAllService(){
+		String jpql = "select c from Cliente c join fetch c.conta ct join fetch ct.agencia a join fetch a.banco";
+		Query query = getEntityManager().createQuery(jpql);
+		
+		return query.getResultList();
+		
 	}
 }

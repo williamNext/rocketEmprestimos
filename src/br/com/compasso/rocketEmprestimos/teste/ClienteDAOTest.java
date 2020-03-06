@@ -26,7 +26,7 @@ class ClienteDAOTest {
 		System.out.println("find by name");
 		
 		Cliente cliente = clienteDAO.findByNome("Kaiser");
-		System.out.println("conta id: " + cliente.getConta().getId());
+		//System.out.println("conta id: " + cliente.getConta().getId());
 		System.out.println("id: " + cliente.getId());
 		System.out.println("nome: " + cliente.getNome());
 		System.out.println("cpf: " + cliente.getCpf());
