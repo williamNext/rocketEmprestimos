@@ -1,10 +1,11 @@
+var inputNome = document.querySelector("#nome");
+var inputValor = document.querySelector("#valor");
+var inputJuros = document.querySelector("#juros");
+var inputParcelas = document.querySelector("#parcelas");
+var inputPagamento = document.querySelector("#pagamento");
 
+var inputForm = [inputNome, inputValor, inputJuros, inputParcelas, inputPagamento];
 
-var inputNome = document.querySelector('#nome');
-var inputValor = document.querySelector('#valor');
-var inputJuros = document.querySelector('#juros');
-var inputParcelas = document.querySelector('#parcelas');
-var inputPagamento = document.querySelector('#pagamento');
 
 inputNome.addEventListener('change', function enableInput(event) {
 	if ($("#nome").val() != "-") {
@@ -15,85 +16,83 @@ inputNome.addEventListener('change', function enableInput(event) {
 	}
 });
 
-inputValor.addEventListener('change', function enableInput(event) {
-	checking();
-});
+for (var i = 1; i < inputForm.length; i++) {
+	inputForm[i].addEventListener('change', function enableInput(event) {
+		parcelamentoDependente();
+		checking();	
+	});
+}
 
-inputJuros.addEventListener('change', function enableInput(event) {
-	checking();
-});
 
-inputParcelas.addEventListener('change', function enableInput(event) {
-	checking();
-});
-
-inputPagamento.addEventListener('change', function enableInput(event) {
-	checking();
-	checkParcelas();
-});
+var idValor = document.getElementById("valor");
+var idJuros = document.getElementById("juros");
+var idPagamento = document.getElementById("pagamento");
+var idParcelas = document.getElementById("parcelas");
+var idBotao = document.getElementById("botao");
+var idForm = [idValor, idJuros, idPagamento, idParcelas, idBotao];
 
 function removeDisbled() {
-	document.getElementById("valor").disabled = false;
-	document.getElementById("valor").placeholder = "Digite o valor a ser solicitado. Ex: 10.00";
-	document.getElementById("juros").disabled = false;
-	document.getElementById("juros").placeholder = "Digite o juros ao mes desejado. Ex: 50.00";
-	document.getElementById("parcelas").disabled = false;
-	document.getElementById("pagamento").disabled = false;
+	for (var i = 0; i < idForm.length; i++) {
+		idForm[i].disabled = false;
+	}
+	
+	idValor.placeholder = "Digite o valor a ser solicitado. Ex: 100,00";
+	idJuros.placeholder = "Digite o juros ao mes desejado. Ex: 5,00";
 }
 
 function disable() {
-	document.getElementById("valor").disabled = true;
-	document.getElementById("valor").placeholder = "Selecione um cliente";
-	document.getElementById("juros").disabled = true;
-	document.getElementById("juros").placeholder = "Selecione um cliente";
-	document.getElementById("parcelas").disabled = true;
-	document.getElementById("pagamento").disabled = true;
-	document.getElementById("botao").disabled = true;
+	for (var i = 0; i < idForm.length; i++) {
+		idForm[i].disabled = true;
+	}
+	
+	idValor.placeholder = "Selecione um cliente";
+	idJuros.placeholder = "Selecione um cliente";
 }
 
 function checking() {
 	if (($("#nome").val() != "-") && ($("#valor").val() > 0)
 			&& ($("#juros").val() > 0) && ($("#parcelas").val() != "-")
-			&& ($("#pagamento").val() != "-") && ((($("#pagamento").val() == "A_VISTA")
-			&& ($("#parcelas").val() == 1)) || (($("#pagamento").val() != "A_VISTA") && ($("#parcelas").val() > 1)))) {
-		$('#botao').prop("disabled", false);
+			&& ($("#pagamento").val() != "-")) {
+		idBotao.disabled = false;
 	} else {
-		document.getElementById("botao").disabled = true;
-	}
-	checkParcelaAvista();
-}
-
-function checkParcelaAvista() {
-	if (($("#pagamento").val() == "A_VISTA") && ($("#parcelas").val() > 1)) {
-		document.getElementById("botao").disabled = true;
-		alert("Quantidade invalida de parcelas para pagamento a vista!");
+		idBotao.disabled = true;
 	}
 }
 
-function checkParcelas() {
-	if (($("#pagamento").val() != "A_VISTA") && ($("#pagamento").val() != "-")) {
-		document.getElementById("2x").disabled = false;
-		document.getElementById("3x").disabled = false;
-		document.getElementById("6x").disabled = false;
-		document.getElementById("9x").disabled = false;
-		document.getElementById("12x").disabled = false;
-		document.getElementById("18x").disabled = false;
-		document.getElementById("24x").disabled = false;
-		document.getElementById("30x").disabled = false;
-		document.getElementById("60x").disabled = false;
-		document.getElementById("120x").disabled = false;
-		document.getElementById("240x").disabled = false;
+
+var optionsParcelas = ["1x", "2x", "3x", "6x", "9x", "12x", "18x", "24x", "36x", "48x", "60x", "72x", "84x", "96x"];
+var valueParcelas = ["1", "2", "3", "6", "9", "12", "18", "24", "36", "48", "60", "72", "84", "96"];
+var valueTest = [0.01, 200, 300, 600, 900, 1200, 1800, 2400, 3600, 4800, 6000, 7200, 8400, 9600];
+var parcelas = document.getElementById("parcelas");
+var counter = 1;
+
+function parcelamentoDependente() {
+	for (let i = counter; i > 1; i--) {
+		parcelas.remove(i);
+		counter--;
+	}
+	
+	if ($("#pagamento").val() != "A_VISTA") {	
+		
+		for (let i = 1; i < optionsParcelas.length; i++) {
+			if (($("#valor").val() >= valueTest[i])) {
+				let optionn = document.createElement("option");
+				optionn.text = optionsParcelas[i];
+				optionn.value = valueParcelas[i];
+				optionn.id = optionsParcelas[i];
+				parcelas.add(optionn);
+				counter++;
+			}
+		}
+		
+		if (($("#valor").val() >= 10) && ($("#valor").val() < valueTest[1])) {
+			document.getElementById("defaultParcelas").text = "Em apenas 1x nesse valor.";
+		} else if ($("#valor").val() >= valueTest[1]) {
+			document.getElementById("defaultParcelas").text = "Em ate " + valueTest[counter-1]/100 + "x nesse valor.";	
+		} else {
+			document.getElementById("defaultParcelas").text = "-";
+		}
 	} else {
-		document.getElementById("2x").disabled = true;
-		document.getElementById("3x").disabled = true;
-		document.getElementById("6x").disabled = true;
-		document.getElementById("9x").disabled = true;
-		document.getElementById("12x").disabled = true;
-		document.getElementById("18x").disabled = true;
-		document.getElementById("24x").disabled = true;
-		document.getElementById("30x").disabled = true;
-		document.getElementById("60x").disabled = true;
-		document.getElementById("120x").disabled = true;
-		document.getElementById("240x").disabled = true;
+		document.getElementById("defaultParcelas").text = "Em apenas 1x no metodo de pagamento selecionado.";
 	}
 }
