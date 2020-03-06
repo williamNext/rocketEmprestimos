@@ -75,7 +75,7 @@ function parcelamentoDependente() {
 		counter--;
 	}
 	
-	
+	let valorParcela = $("#valor").val()*(1+$("#juros").val()/100);
 	
 	if ($("#pagamento").val() != "A_VISTA") {	
 		
@@ -91,11 +91,10 @@ function parcelamentoDependente() {
 			}
 		}
 		
-		let valorParcela = $("#valor").val()*(1+$("#juros").val()/100);
-		
 		if (($("#valor").val() > 0) && ($("#valor").val() < 10)) {
 			document.getElementById("1").text = "";
 			document.getElementById("defaultParcelas").text = "Valor insuficiente";
+			
 		} else if ($("#valor").val() < valueTest[1]) {
 			document.getElementById("defaultParcelas").text = "Em apenas 1x nesse valor";
 			document.getElementById("1").text = "1x de R$ " + valorParcela.toFixed(2);
@@ -106,5 +105,6 @@ function parcelamentoDependente() {
 
 	} else {
 		document.getElementById("defaultParcelas").text = "Em apenas 1x no metodo de pagamento selecionado";
+		document.getElementById("1").text = "1x de R$ " + valorParcela.toFixed(2);
 	}
 }
