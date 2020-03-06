@@ -4,8 +4,7 @@ var inputJuros = document.querySelector("#juros");
 var inputParcelas = document.querySelector("#parcelas");
 var inputPagamento = document.querySelector("#pagamento");
 
-var inputForm = [inputNome, inputValor, inputJuros, inputParcelas, inputPagamento];
-
+var inputForm = [inputNome, inputValor, inputJuros, inputPagamento];
 
 inputNome.addEventListener('change', function enableInput(event) {
 	if ($("#nome").val() != "-") {
@@ -18,10 +17,16 @@ inputNome.addEventListener('change', function enableInput(event) {
 
 for (var i = 1; i < inputForm.length; i++) {
 	inputForm[i].addEventListener('change', function enableInput(event) {
+
 		parcelamentoDependente();
 		checking();	
 	});
 }
+
+inputParcelas.addEventListener('change', function enableInput(event) {
+	
+	checking();	
+});
 
 
 var idValor = document.getElementById("valor");
@@ -59,8 +64,6 @@ function checking() {
 	}
 }
 
-
-var optionsParcelas = ["1x", "2x", "3x", "6x", "9x", "12x", "18x", "24x", "36x", "48x", "60x", "72x", "84x", "96x"];
 var valueParcelas = ["1", "2", "3", "6", "9", "12", "18", "24", "36", "48", "60", "72", "84", "96"];
 var valueTest = [0.01, 200, 300, 600, 900, 1200, 1800, 2400, 3600, 4800, 6000, 7200, 8400, 9600];
 var parcelas = document.getElementById("parcelas");
@@ -72,27 +75,36 @@ function parcelamentoDependente() {
 		counter--;
 	}
 	
+	
+	
 	if ($("#pagamento").val() != "A_VISTA") {	
 		
-		for (let i = 1; i < optionsParcelas.length; i++) {
+		for (let i = 1; i < valueParcelas.length; i++) {
 			if (($("#valor").val() >= valueTest[i])) {
+				let valorParcela = $("#valor").val()*(1+$("#juros").val()/100)/valueParcelas[i];
 				let optionn = document.createElement("option");
-				optionn.text = optionsParcelas[i];
+				optionn.text = valueParcelas[i] + "x de R$ " + valorParcela.toFixed(2);
 				optionn.value = valueParcelas[i];
-				optionn.id = optionsParcelas[i];
+				optionn.id = valueParcelas[i];
 				parcelas.add(optionn);
 				counter++;
 			}
 		}
 		
-		if (($("#valor").val() >= 10) && ($("#valor").val() < valueTest[1])) {
-			document.getElementById("defaultParcelas").text = "Em apenas 1x nesse valor.";
+		let valorParcela = $("#valor").val()*(1+$("#juros").val()/100);
+		
+		if (($("#valor").val() > 0) && ($("#valor").val() < 10)) {
+			document.getElementById("1").text = "";
+			document.getElementById("defaultParcelas").text = "Valor insuficiente";
+		} else if ($("#valor").val() < valueTest[1]) {
+			document.getElementById("defaultParcelas").text = "Em apenas 1x nesse valor";
+			document.getElementById("1").text = "1x de R$ " + valorParcela.toFixed(2);
 		} else if ($("#valor").val() >= valueTest[1]) {
-			document.getElementById("defaultParcelas").text = "Em ate " + valueTest[counter-1]/100 + "x nesse valor.";	
-		} else {
-			document.getElementById("defaultParcelas").text = "-";
+			document.getElementById("defaultParcelas").text = "Em ate " + valueTest[counter-1]/100 + "x nesse valor";	
+			document.getElementById("1").text = "1x de R$ " + valorParcela.toFixed(2);
 		}
+
 	} else {
-		document.getElementById("defaultParcelas").text = "Em apenas 1x no metodo de pagamento selecionado.";
+		document.getElementById("defaultParcelas").text = "Em apenas 1x no metodo de pagamento selecionado";
 	}
 }
