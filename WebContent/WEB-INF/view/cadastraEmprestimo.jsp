@@ -51,7 +51,6 @@
 			<label for="parcelas-emprestimo">Quantidade de parcelas:</label>
 			<select class="selector" id="parcelas" name="numeroParcelas" disabled>
 				<option id="defaultParcelas" value="-">-</option>
-				<option id="1" value="1"> </option>
 			</select>
 			
 			<input type="hidden" name="acao" value="CadastraEmprestimo">
